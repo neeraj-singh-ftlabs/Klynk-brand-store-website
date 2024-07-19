@@ -3,7 +3,7 @@ import TranslatedContent from "@/components/TranslatedComponent";
 import ThemeToggle from "../components/ThemeToggle";
 import ThemedComponent from "../components/ThemedComponent";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
-import Button from "@/components/Layouts/Buttos/PrimaryButton";
+import Button from "@/components/Layouts/Buttons/PrimaryButton";
 
 export default function Home() {
   return (

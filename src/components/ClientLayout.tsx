@@ -13,7 +13,7 @@ const ClientLayout = ({ children }: ClientLayoutProps) => {
   return (
     <ThemeProvider>
       <div>
-        <ThemeSwitcher />
+        {/* <ThemeSwitcher /> */}
         {children}
       </div>
     </ThemeProvider>
