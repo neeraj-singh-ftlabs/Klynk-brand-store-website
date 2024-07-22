@@ -10,11 +10,32 @@ import Image from "next/image";
 
 
 function BlogContent() {
-  const [blogDetail, setBlogDetail] = useState({});
+    const [blogDetail, setBlogDetail] = useState<BlogDetail | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [image, setImages] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const [imageUrl, setImageUrl] = useState('');
   const {id} = useParams()
+
+  interface BlogAttributes {
+    title: string;
+    summary: string;
+    featuredImage?: {
+      data?: {
+        attributes?: {
+          url?: string;
+        };
+      };
+    };
+    publishedAt?: string; // Add this line to handle publishedAt
+  }
+  
+  interface BlogDetail {
+    attributes?: BlogAttributes;
+  }
+  
+  interface ApiResponse {
+    data: BlogDetail;
+  }
   
 
   useEffect(() => {
@@ -34,9 +55,13 @@ function BlogContent() {
       setBlogDetail(data.data);
       setLoading(false);
     } catch (err) {
-      setError(err.message);
-      setLoading(false);
-    }
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError(String(err));
+        }
+        setLoading(false);
+      }
   };
 
   //   if (loading) {
@@ -51,23 +76,27 @@ function BlogContent() {
     /* Progress bar */
     const h = document.documentElement;
     const b = document.body;
-    const progress = document.querySelector("#progress");
+    const progress = document.querySelector("#progress")as HTMLElement | null;
     let scroll;
     let scrollpos = window.scrollY;
-    const header = document.getElementById("header");
+    const header = document.getElementById("header")as HTMLElement | null;
 
     const handleScroll = () => {
+        if (progress) {
       /* Refresh scroll % width */
       scroll =
         ((h.scrollTop || b.scrollTop) /
           ((h.scrollHeight || b.scrollHeight) - h.clientHeight)) *
         100;
-      progress.style.setProperty("--scroll", scroll + "%");
+      progress?.style.setProperty("--scroll", scroll + "%");
+        }
 
       /* Apply classes for slide in bar */
       scrollpos = window.scrollY;
 
+      if(header){
       if (scrollpos > 100) {
+        
         header.classList.remove("hidden");
         header.classList.remove("fadeOutUp");
         header.classList.add("slideInDown");
@@ -76,6 +105,7 @@ function BlogContent() {
         header.classList.add("fadeOutUp");
         header.classList.add("hidden");
       }
+    }
     };
 
     // Scroll to top functionality
@@ -83,23 +113,27 @@ function BlogContent() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
-    const scrollTopButton = document.querySelector(".js-scroll-top");
+    const scrollTopButton = document.querySelector(".js-scroll-top")as HTMLElement | null;
     if (scrollTopButton) {
       scrollTopButton.onclick = scrollToTop;
 
-      const path = document.querySelector(".scroll-top path");
-      const pathLength = path.getTotalLength();
-      path.style.transition = path.style.WebkitTransition = "none";
-      path.style.strokeDasharray = `${pathLength} ${pathLength}`;
-      path.style.strokeDashoffset = pathLength;
-      path.getBoundingClientRect();
-      path.style.transition = path.style.WebkitTransition =
-        "stroke-dashoffset 10ms linear";
+      const path = document.querySelector(".scroll-top path")as SVGPathElement | null;
+      let pathLength=0
+      if(path){
+
+           pathLength = path.getTotalLength();
+          path.style.transition = path.style.transition = "none";
+          path.style.strokeDasharray = `${pathLength} ${pathLength}`;
+          path.style.strokeDashoffset = `${pathLength}`
+          path.getBoundingClientRect();
+          path.style.transition = path.style.transition =
+            "stroke-dashoffset 10ms linear";
+      }
 
       const updateScrollPosition = () => {
         const scrollY =
           window.scrollY ||
-          window.scrollTop ||
+        //   window.scrollTop ||
           document.documentElement.scrollTop;
         const maxScrollHeight = Math.max(
           document.body.scrollHeight,
@@ -113,12 +147,14 @@ function BlogContent() {
           document.documentElement.clientHeight,
           window.innerHeight || 0
         );
+if(path){
 
-        const dashOffset =
-          pathLength -
-          (scrollY * pathLength) / (maxScrollHeight - windowHeight);
-        path.style.strokeDashoffset = dashOffset;
-      };
+    const dashOffset =
+      pathLength -
+      (scrollY * pathLength) / (maxScrollHeight - windowHeight);
+    path.style.strokeDashoffset = `${dashOffset}`;
+  };
+}
 
       updateScrollPosition();
 
@@ -127,7 +163,7 @@ function BlogContent() {
         updateScrollPosition();
         const scrollY =
           window.scrollY ||
-          window.scrollTop ||
+        //   window.scrollTop ||
           document.getElementsByTagName("html")[0].scrollTop;
         if (scrollY > scrollThreshold) {
           scrollTopButton.classList.add("is-active");
@@ -144,7 +180,7 @@ function BlogContent() {
   }, []);
 
   return (
-    <main class="bg-white font-sans leading-normal tracking-normal overflow-hidden">
+    <main className="bg-white font-sans leading-normal tracking-normal overflow-hidden">
      
       <div
         id="header"
@@ -226,7 +262,7 @@ function BlogContent() {
 
     
 
-      <div class="w-full max-w-8xl  mx-auto bg-white bg-cover mt-8 rounded ">
+      <div className="w-full max-w-8xl  mx-auto bg-white bg-cover mt-8 rounded ">
         <div
           className="bg-white w-full text-4xl  text-gray-800 leading-normal md:ml-10 text-start mt-10"
           //   style={{ fontFamily: 'Georgia, serif' }}
@@ -260,7 +296,7 @@ function BlogContent() {
       />}
     </div>
         <div className="bg-gray-100 ">
-        <div className=" container mx-auto p-10  -mt-80 md:-mt-0 ">
+        <div className=" container mx-auto p-10   ">
           <p className="text-xl text-black mb-5 text-wrap">
           {blogDetail?.attributes?.summary || "-"}
 
@@ -278,17 +314,17 @@ function BlogContent() {
         
       </div>
 
-      <section class="flex justify-start mt-8 h-[100vh] container mx-auto ">
-        <article class="w-1/4 px-4 py-6 bg-white rounded-lg ml-5 md:ml-5">
-          <h2 class="text-xl font-bold mb-2  text-center md:text-start" style={{color:"#f25d23"}}>Table of content</h2>
-          <p class="text-gray-700">
+      <section className="flex justify-start mt-8 h-[100vh] container mx-auto ">
+        <article className="w-1/4 px-4 py-6 bg-white rounded-lg ml-5 md:ml-5">
+          <h2 className="text-xl font-bold mb-2  text-center md:text-start" style={{color:"#f25d23"}}>Table of content</h2>
+          <p className="text-gray-700">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel
             tortor ut odio fermentum suscipit.
           </p>
         </article>
-        <div class="w-1/2 px-4 py-6 bg-white rounded-lg overflow-y-auto overflow-hidden scrollable">
-          <div class="h-96 ">
-            <h2 class="text-xl font-bold mb-2 text-center md:text-start">Title goes here</h2>
+        <div className="w-1/2 px-4 py-6 bg-white rounded-lg overflow-y-auto overflow-hidden scrollable">
+          <div className="h-96 ">
+            <h2 className="text-xl font-bold mb-2 text-center md:text-start">Title goes here</h2>
             <div
               className="bg-white w-full p-8 md:p-0 text-xl md:text-xl text-gray-800 text-wrap leading-normal"
               style={{ fontFamily: "Georgia, serif" }}
@@ -353,23 +389,27 @@ function BlogContent() {
             </div>
           </div>
         </div>
-        <article class="w-1/4 h-full md:px-4 py-6 bg-white rounded-lg ">
-          <div class="max-w-[100%] text-wrap rounded-lg shadow ">
+        <article className="w-1/4 h-full md:px-4 py-6 bg-white rounded-lg ">
+          <div className="max-w-[100%] text-wrap rounded-lg shadow ">
             <a href="#">
-              <div
+              {/* <div
                 className=" bg-contain bg-no-repeat md:bg-cover "
                 style={{
                   backgroundImage:
                     "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC53r_mfuwGqpHKGnwrcXaaH1zU7FXqPJu-h-e8aWKPs50NTtD')",
                   height: "47vh",
                 }}
-              ></div>
-              
-              {/* <img className="rounded-t-lg "   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC53r_mfuwGqpHKGnwrcXaaH1zU7FXqPJu-h-e8aWKPs50NTtD" alt="" /> */}
-            </a>
-            
-            <div class="bg-transparent -mt-60 md:-mt-20 md:ml-5">
-              <h5 className="mb-3 ">Noteworthy technology acquisitions 2021</h5>
+              ></div> */}
+               <div className="relative z-10" style={{ height: '47vh', width: '100%' }}>
+      <Image
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC53r_mfuwGqpHKGnwrcXaaH1zU7FXqPJu-h-e8aWKPs50NTtD"
+        alt="Background Image"
+        layout="fill"
+        objectFit="cover"
+        className="object-cover"
+      />
+           <div className="w-full absolute top-[90%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 bg-transparent z-20 p-5">
+              <h5 className="mb-3 ">Noteworthy technology acquisitions 2021</h5> 
 
             
                 <button className="inline-flex items-center px-5 py-2 text-sm font-medium text-center text-white  focus:ring-4 focus:outline-none bg-gradient-to-r from-[#ef4924] to-[#f47022] rounded ">Shop Now</button>
@@ -377,6 +417,20 @@ function BlogContent() {
               
             
             </div>
+    </div>
+              
+              {/* <img className="rounded-t-lg "   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC53r_mfuwGqpHKGnwrcXaaH1zU7FXqPJu-h-e8aWKPs50NTtD" alt="" /> */}
+            </a>
+            
+            {/* <div class="bg-transparent -mt-40 md:-mt-20 md:ml-5 z-20">
+              <h5 className="mb-3 ">Noteworthy technology acquisitions 2021</h5> 
+
+            
+                <button className="inline-flex items-center px-5 py-2 text-sm font-medium text-center text-white  focus:ring-4 focus:outline-none bg-gradient-to-r from-[#ef4924] to-[#f47022] rounded ">Shop Now</button>
+                
+              
+            
+            </div> */}
           </div>
           
         </article>
