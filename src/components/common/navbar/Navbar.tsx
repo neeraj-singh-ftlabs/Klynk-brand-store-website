@@ -3,8 +3,72 @@
 import { useState } from "react";
 import { Button, useMediaQuery } from "@relume_io/relume-ui";
 import type { ButtonProps } from "@relume_io/relume-ui";
-import { RxChevronDown, RxChevronRight } from "react-icons/rx";
+import { RxChevronRight } from "react-icons/rx";
 import { motion } from "framer-motion";
+import Image from "next/image";
+
+interface ProductData {
+  imageSrc: string;
+  name: string;
+}
+
+const products: ProductData[] = [
+  {
+    imageSrc:
+      "https://cdn.builder.io/api/v1/image/assets/TEMP/22d66e7ab1eb84cb7eb6c765c22d7a86111270106e1a2868965dda7a52577b9b?apiKey=971b6410d97242e7b97afd5891e4e40f&",
+    name: "Ola S1 Pro",
+  },
+  {
+    imageSrc:
+      "https://cdn.builder.io/api/v1/image/assets/TEMP/5c9de794d1cca8caf688345f4fc17e51e9491b941cd390b0fb4676369fb374c5?apiKey=971b6410d97242e7b97afd5891e4e40f&",
+    name: "Ola S1 Air",
+  },
+  {
+    imageSrc:
+      "https://cdn.builder.io/api/v1/image/assets/TEMP/798fba74692defb10fd4111e029b732fd13b79c43fc154d74ff89c958cca69db?apiKey=971b6410d97242e7b97afd5891e4e40f&",
+    name: "Ola S1 X",
+  },
+  {
+    imageSrc:
+      "https://cdn.builder.io/api/v1/image/assets/TEMP/3fec0a4533618aabe7a1e4587c15bd1be886992881c93398a8c747fc666a1439?apiKey=971b6410d97242e7b97afd5891e4e40f&",
+    name: "Motorcycles",
+  },
+];
+
+const techItems = [
+  "Tech & Design",
+  "Software",
+  "Cell Tech",
+  "Manufacturing",
+  "Performance",
+  "Design",
+];
+
+const ownershipItems = [
+  "Ownership",
+  "Electric Store",
+  "Hypercharger",
+  "Community",
+  "Referrals",
+  "Service",
+  "Battery Warranty",
+  "Break All Barriers",
+];
+
+const companyItems = [
+  "Our Company",
+  "About Us",
+  "Investor Relations",
+  "News & Events",
+  "Blogs",
+  "Careers",
+];
+
+// const accountItems = [
+//   "Account",
+//   "Sign in",
+//   "Support",
+// ];
 
 type ImageProps = {
   url?: string;
@@ -46,7 +110,130 @@ type Props = {
   buttons: ButtonProps[];
 };
 
-export type Navbar5Props = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
+const hamburger = {
+  title: "Link Four",
+  url: "#",
+  megaMenu: {
+    categoryLinks: [
+      {
+        title: "Page group one",
+        links: [
+          {
+            url: "#",
+            image: {
+              src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+              alt: "Icon 1",
+            },
+            title: "Page One",
+            description: "Lorem ipsum dolor sit amet consectetur elit",
+          },
+          {
+            url: "#",
+            image: {
+              src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+              alt: "Icon 2",
+            },
+            title: "Page Two",
+            description: "Lorem ipsum dolor sit amet consectetur elit",
+          },
+          {
+            url: "#",
+            image: {
+              src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+              alt: "Icon 3",
+            },
+            title: "Page Three",
+            description: "Lorem ipsum dolor sit amet consectetur elit",
+          },
+          {
+            url: "#",
+            image: {
+              src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+              alt: "Icon 4",
+            },
+            title: "Page Four",
+            description: "Lorem ipsum dolor sit amet consectetur elit",
+          },
+        ],
+      },
+      {
+        title: "Page group two",
+        links: [
+          {
+            url: "#",
+            image: {
+              src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+              alt: "Icon 5",
+            },
+            title: "Page Five",
+            description: "Lorem ipsum dolor sit amet consectetur elit",
+          },
+          {
+            url: "#",
+            image: {
+              src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+              alt: "Icon 6",
+            },
+            title: "Page Six",
+            description: "Lorem ipsum dolor sit amet consectetur elit",
+          },
+          {
+            url: "#",
+            image: {
+              src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+              alt: "Icon 7",
+            },
+            title: "Page Seven",
+            description: "Lorem ipsum dolor sit amet consectetur elit",
+          },
+          {
+            url: "#",
+            image: {
+              src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+              alt: "Icon 8",
+            },
+            title: "Page Eight",
+            description: "Lorem ipsum dolor sit amet consectetur elit",
+          },
+        ],
+      },
+    ],
+    featuredSections: {
+      title: "Featured from Blog",
+      links: [
+        {
+          url: "#",
+          image: {
+            src: "https://relume-assets.s3.amazonaws.com/placeholder-image-landscape.svg",
+            alt: "Placeholder image 1",
+          },
+          title: "Article Title",
+          description: "Lorem ipsum dolor sit amet consectetur elit",
+          button: { title: "Read more", variant: "link", size: "link" },
+        },
+        {
+          url: "#",
+          image: {
+            src: "https://relume-assets.s3.amazonaws.com/placeholder-image-landscape.svg",
+            alt: "Placeholder image 2",
+          },
+          title: "Article Title",
+          description: "Lorem ipsum dolor sit amet consectetur elit",
+          button: { title: "Read more", variant: "link", size: "link" },
+        },
+      ],
+    },
+    button: {
+      title: "See all articles",
+      variant: "link",
+      size: "link",
+      iconRight: <RxChevronRight className="size-6" />,
+    },
+  },
+};
+
+export type Navbar5Props = React.ComponentPropsWithoutRef<"section"> &
+  Partial<Props>;
 
 export const Navbar = (props: Navbar5Props) => {
   const { logo, links, buttons } = {
@@ -58,7 +245,7 @@ export const Navbar = (props: Navbar5Props) => {
   const isMobile = useMediaQuery("(max-width: 991px)");
 
   return (
-    <nav className="relative flex w-full items-center justify-between border-b border-border-primary bg-background-primary lg:min-h-18 lg:px-[5%]">
+    <nav className="relative flex w-full items-center justify-between border-b border-border-primary bg-background-primary lg:min-h-18 lg:px-[5%] z-50">
       <div className="size-full lg:flex lg:items-center lg:justify-between">
         <div className="lg:flex">
           <div className="flex min-h-16 items-center justify-between px-[5%] md:min-h-18 lg:min-h-full lg:px-0">
@@ -104,7 +291,11 @@ export const Navbar = (props: Navbar5Props) => {
             {links.map((link, index) => (
               <div key={index} className="first:pt-4 lg:first:pt-0">
                 {link.megaMenu ? (
-                  <SubMenu megaMenu={link.megaMenu} title={link.title} isMobile={isMobile} />
+                  <SubMenu
+                    megaMenu={link.megaMenu}
+                    title={link.title}
+                    isMobile={isMobile}
+                  />
                 ) : (
                   <a
                     href={link.url}
@@ -121,6 +312,11 @@ export const Navbar = (props: Navbar5Props) => {
                   {button.title}
                 </Button>
               ))}
+              <HamMenu
+                megaMenu={ hamburger.megaMenu as MegaMenuLinkProps}
+                title={"More"}
+                isMobile={isMobile}
+              />
             </div>
           </motion.div>
         </div>
@@ -130,6 +326,12 @@ export const Navbar = (props: Navbar5Props) => {
               {button.title}
             </Button>
           ))}
+
+          <HamMenu
+            megaMenu={hamburger.megaMenu as MegaMenuLinkProps}
+            title={"More"}
+            isMobile={isMobile}
+          />
         </div>
       </div>
     </nav>
@@ -140,7 +342,7 @@ const SubMenu = ({
   isMobile,
   megaMenu,
 }: {
-  title: string;
+  title: string | null;
   isMobile: boolean;
   megaMenu: MegaMenuLinkProps;
 }) => {
@@ -163,7 +365,7 @@ const SubMenu = ({
           animate={isDropdownOpen ? "rotated" : "initial"}
           transition={{ duration: 0.3 }}
         >
-          <RxChevronDown />
+          {/* <RxChevronDown /> */}
         </motion.span>
       </button>
       <motion.div
@@ -193,7 +395,9 @@ const SubMenu = ({
                   key={index}
                   className="grid auto-rows-max grid-cols-1 grid-rows-[max-content] gap-y-2 md:gap-y-4"
                 >
-                  <h4 className="text-sm font-semibold leading-[1.3]">{group.title}</h4>
+                  <h4 className="text-sm font-semibold leading-[1.3]">
+                    {group.title}
+                  </h4>
                   {group.links.map((link, index) => (
                     <a
                       key={index}
@@ -205,7 +409,9 @@ const SubMenu = ({
                       </div>
                       <div className="flex flex-col items-start justify-center">
                         <h5 className="font-semibold">{link.title}</h5>
-                        <p className="hidden text-sm md:block">{link.description}</p>
+                        <p className="hidden text-sm md:block">
+                          {link.description}
+                        </p>
                       </div>
                     </a>
                   ))}
@@ -271,6 +477,153 @@ const SubMenu = ({
   );
 };
 
+const HamMenu = ({
+  title,
+  isMobile,
+  megaMenu,
+}: {
+  title: string | null;
+  isMobile: boolean;
+  megaMenu: MegaMenuLinkProps;
+}) => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  return (
+    <div
+      className="z-50"
+      // onMouseEnter={() => !isMobile && setIsDropdownOpen(true)}
+      // onMouseLeave={() => !isMobile && setIsDropdownOpen(false)}
+    >
+      {/* <button
+        className="flex w-full items-center justify-between gap-x-2 py-3 text-center text-md focus-visible:outline-none lg:w-auto lg:flex-none lg:justify-start lg:px-4 lg:py-6 lg:text-base"
+        onClick={() => setIsDropdownOpen((prev) => !prev)}
+      > */}
+      <Button
+        className="flex w-full"
+        onClick={() => setIsDropdownOpen((prev) => !prev)}
+      >
+        {title}
+      </Button>
+      {/* <motion.span
+          variants={{
+            rotated: { rotate: 180 },
+            initial: { rotate: 0 },
+          }}
+          animate={isDropdownOpen ? "rotated" : "initial"}
+          transition={{ duration: 0.3 }}
+        > */}
+      {/* <RxChevronDown /> */}
+      {/* </motion.span> */}
+      {/* </button> */}
+      <motion.div
+        variants={{
+          open: {
+            visibility: "visible",
+            opacity: 1,
+            height: "var(--height-open, auto)",
+          },
+          close: {
+            visibility: "hidden",
+            opacity: "0",
+            height: "var(--height-close, 0)",
+          },
+        }}
+        initial="close"
+        exit="close"
+        animate={isDropdownOpen ? "open" : "close"}
+        transition={{ duration: 0.3 }}
+        className="bottom-auto left-0 top-full w-full min-w-full max-w-full overflow-hidden bg-background-primary lg:absolute lg:w-[100vw] lg:border-b lg:border-border-primary lg:px-[5%] lg:[--height-close:auto]"
+      >
+        <div className="flex gap-5 justify-around items-start py-9 pr-7 pl-0 bg-white max-md:flex-wrap max-md:px-5">
+          <section className="flex gap-5   mt-3 max-md:flex-wrap max-md:max-w-1/3">
+            <div className="flex flex-col text-lg tracking-wide text-center text-blue-950">
+              <div className="flex gap-5 md:mr-20">
+                {products.slice(0, 2).map((product, index) => (
+                  <ProductCard
+                    key={index}
+                    imageSrc={product.imageSrc}
+                    name={product.name}
+                  />
+                ))}
+              </div>
+              <div className="flex gap-5 mt-3">
+                {products.slice(2).map((product, index) => (
+                  <ProductCard
+                    key={index}
+                    imageSrc={product.imageSrc}
+                    name={product.name}
+                  />
+                ))}
+              </div>
+              <Image
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/30d24e3619902eb4b8651c3c0ee68eb458dffacd2f47ee2aa60740da2d64a12a?apiKey=971b6410d97242e7b97afd5891e4e40f&"
+                alt=""
+                width={1000} // Example width, you can adjust it to fit your layout
+                height={Math.round(1000 / 3.03)} // Maintain aspect ratio of 3.03
+                className="mt-12 w-full aspect-[3.03] max-md:mt-10"
+                loading="lazy"
+              />{" "}
+            </div>
+            {/* <div className="shrink-0 self-stretch w-px bg-gray-200 h-[494px]" /> */}
+          </section>
+          <div className="shrink-0 self-stretch w-px bg-gray-200 h-[494px] hidden md:block " />
+
+          <section className="flex gap-30 justify-between items-start text-base tracking-tight text-black max-md:flex-wrap max-md:max-w-1/2 md:ml-20">
+            <ListSection items={techItems} />
+            <ListSection items={ownershipItems} />
+            <ListSection items={companyItems} />
+            {/* <ListSection items={accountItems}/> */}
+          </section>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
+interface ProductCardProps {
+  imageSrc: string;
+  name: string;
+}
+
+function ProductCard({ imageSrc, name }: ProductCardProps) {
+  return (
+    <div className="flex flex-col  items-center leading-[126%] ">
+      {/* <img loading="lazy" src={imageSrc} alt={name} className="aspect-[1.28] w-[148px]" /> */}
+      <Image
+        src={imageSrc}
+        alt={name}
+        width={200}
+        height={Math.round(200 / 1.28)} // Calculate height based on the aspect ratio
+        className="w-[200px] aspect-[1.28]"
+        loading="lazy"
+      />
+      <div className="mt-4">{name}</div>
+    </div>
+  );
+}
+
+interface ListSectionProps {
+  items: string[];
+  children?: React.ReactNode;
+}
+
+function ListSection({ items, children }: ListSectionProps) {
+  return (
+    <div className="flex flex-col mt-4">
+      {children}
+      {items.map((item, index) => (
+        <div
+          key={index}
+          className={`${index > 0 ? "mt-8" : ""} leading-[140%] ${
+            index === 0 ? "text-gray-500" : ""
+          }`}
+        >
+          {item}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export const Navbar5Defaults: Navbar5Props = {
   logo: {
     url: "#",
@@ -278,9 +631,369 @@ export const Navbar5Defaults: Navbar5Props = {
     alt: "Logo image",
   },
   links: [
-    { title: "Link One", url: "#" },
-    { title: "Link Two", url: "#" },
-    { title: "Link Three", url: "#" },
+    {
+      title: "Link One",
+      url: "#",
+      megaMenu: {
+        categoryLinks: [
+          {
+            title: "Page group one",
+            links: [
+              {
+                url: "#",
+                image: {
+                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+                  alt: "Icon 1",
+                },
+                title: "Page One",
+                description: "Lorem ipsum dolor sit amet consectetur elit",
+              },
+              {
+                url: "#",
+                image: {
+                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+                  alt: "Icon 2",
+                },
+                title: "Page Two",
+                description: "Lorem ipsum dolor sit amet consectetur elit",
+              },
+              {
+                url: "#",
+                image: {
+                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+                  alt: "Icon 3",
+                },
+                title: "Page Three",
+                description: "Lorem ipsum dolor sit amet consectetur elit",
+              },
+              {
+                url: "#",
+                image: {
+                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+                  alt: "Icon 4",
+                },
+                title: "Page Four",
+                description: "Lorem ipsum dolor sit amet consectetur elit",
+              },
+            ],
+          },
+          {
+            title: "Page group two",
+            links: [
+              {
+                url: "#",
+                image: {
+                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+                  alt: "Icon 5",
+                },
+                title: "Page Five",
+                description: "Lorem ipsum dolor sit amet consectetur elit",
+              },
+              {
+                url: "#",
+                image: {
+                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+                  alt: "Icon 6",
+                },
+                title: "Page Six",
+                description: "Lorem ipsum dolor sit amet consectetur elit",
+              },
+              {
+                url: "#",
+                image: {
+                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+                  alt: "Icon 7",
+                },
+                title: "Page Seven",
+                description: "Lorem ipsum dolor sit amet consectetur elit",
+              },
+              {
+                url: "#",
+                image: {
+                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+                  alt: "Icon 8",
+                },
+                title: "Page Eight",
+                description: "Lorem ipsum dolor sit amet consectetur elit",
+              },
+            ],
+          },
+        ],
+        featuredSections: {
+          title: "Featured from Blog",
+          links: [
+            {
+              url: "#",
+              image: {
+                src: "https://relume-assets.s3.amazonaws.com/placeholder-image-landscape.svg",
+                alt: "Placeholder image 1",
+              },
+              title: "Article Title",
+              description: "Lorem ipsum dolor sit amet consectetur elit",
+              button: { title: "Read more", variant: "link", size: "link" },
+            },
+            {
+              url: "#",
+              image: {
+                src: "https://relume-assets.s3.amazonaws.com/placeholder-image-landscape.svg",
+                alt: "Placeholder image 2",
+              },
+              title: "Article Title",
+              description: "Lorem ipsum dolor sit amet consectetur elit",
+              button: { title: "Read more", variant: "link", size: "link" },
+            },
+          ],
+        },
+        button: {
+          title: "See all articles",
+          variant: "link",
+          size: "link",
+          iconRight: <RxChevronRight className="size-6" />,
+        },
+      },
+    },
+    {
+      title: "Link Two",
+      url: "#",
+      megaMenu: {
+        categoryLinks: [
+          {
+            title: "Page group one",
+            links: [
+              {
+                url: "#",
+                image: {
+                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+                  alt: "Icon 1",
+                },
+                title: "Page One",
+                description: "Lorem ipsum dolor sit amet consectetur elit",
+              },
+              {
+                url: "#",
+                image: {
+                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+                  alt: "Icon 2",
+                },
+                title: "Page Two",
+                description: "Lorem ipsum dolor sit amet consectetur elit",
+              },
+              {
+                url: "#",
+                image: {
+                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+                  alt: "Icon 3",
+                },
+                title: "Page Three",
+                description: "Lorem ipsum dolor sit amet consectetur elit",
+              },
+              {
+                url: "#",
+                image: {
+                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+                  alt: "Icon 4",
+                },
+                title: "Page Four",
+                description: "Lorem ipsum dolor sit amet consectetur elit",
+              },
+            ],
+          },
+          {
+            title: "Page group two",
+            links: [
+              {
+                url: "#",
+                image: {
+                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+                  alt: "Icon 5",
+                },
+                title: "Page Five",
+                description: "Lorem ipsum dolor sit amet consectetur elit",
+              },
+              {
+                url: "#",
+                image: {
+                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+                  alt: "Icon 6",
+                },
+                title: "Page Six",
+                description: "Lorem ipsum dolor sit amet consectetur elit",
+              },
+              {
+                url: "#",
+                image: {
+                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+                  alt: "Icon 7",
+                },
+                title: "Page Seven",
+                description: "Lorem ipsum dolor sit amet consectetur elit",
+              },
+              {
+                url: "#",
+                image: {
+                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+                  alt: "Icon 8",
+                },
+                title: "Page Eight",
+                description: "Lorem ipsum dolor sit amet consectetur elit",
+              },
+            ],
+          },
+        ],
+        featuredSections: {
+          title: "Featured from Blog",
+          links: [
+            {
+              url: "#",
+              image: {
+                src: "https://relume-assets.s3.amazonaws.com/placeholder-image-landscape.svg",
+                alt: "Placeholder image 1",
+              },
+              title: "Article Title",
+              description: "Lorem ipsum dolor sit amet consectetur elit",
+              button: { title: "Read more", variant: "link", size: "link" },
+            },
+            {
+              url: "#",
+              image: {
+                src: "https://relume-assets.s3.amazonaws.com/placeholder-image-landscape.svg",
+                alt: "Placeholder image 2",
+              },
+              title: "Article Title",
+              description: "Lorem ipsum dolor sit amet consectetur elit",
+              button: { title: "Read more", variant: "link", size: "link" },
+            },
+          ],
+        },
+        button: {
+          title: "See all articles",
+          variant: "link",
+          size: "link",
+          iconRight: <RxChevronRight className="size-6" />,
+        },
+      },
+    },
+    {
+      title: "Link Three",
+      url: "#",
+      megaMenu: {
+        categoryLinks: [
+          {
+            title: "Page group one",
+            links: [
+              {
+                url: "#",
+                image: {
+                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+                  alt: "Icon 1",
+                },
+                title: "Page One",
+                description: "Lorem ipsum dolor sit amet consectetur elit",
+              },
+              {
+                url: "#",
+                image: {
+                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+                  alt: "Icon 2",
+                },
+                title: "Page Two",
+                description: "Lorem ipsum dolor sit amet consectetur elit",
+              },
+              {
+                url: "#",
+                image: {
+                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+                  alt: "Icon 3",
+                },
+                title: "Page Three",
+                description: "Lorem ipsum dolor sit amet consectetur elit",
+              },
+              {
+                url: "#",
+                image: {
+                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+                  alt: "Icon 4",
+                },
+                title: "Page Four",
+                description: "Lorem ipsum dolor sit amet consectetur elit",
+              },
+            ],
+          },
+          {
+            title: "Page group two",
+            links: [
+              {
+                url: "#",
+                image: {
+                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+                  alt: "Icon 5",
+                },
+                title: "Page Five",
+                description: "Lorem ipsum dolor sit amet consectetur elit",
+              },
+              {
+                url: "#",
+                image: {
+                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+                  alt: "Icon 6",
+                },
+                title: "Page Six",
+                description: "Lorem ipsum dolor sit amet consectetur elit",
+              },
+              {
+                url: "#",
+                image: {
+                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+                  alt: "Icon 7",
+                },
+                title: "Page Seven",
+                description: "Lorem ipsum dolor sit amet consectetur elit",
+              },
+              {
+                url: "#",
+                image: {
+                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+                  alt: "Icon 8",
+                },
+                title: "Page Eight",
+                description: "Lorem ipsum dolor sit amet consectetur elit",
+              },
+            ],
+          },
+        ],
+        featuredSections: {
+          title: "Featured from Blog",
+          links: [
+            {
+              url: "#",
+              image: {
+                src: "https://relume-assets.s3.amazonaws.com/placeholder-image-landscape.svg",
+                alt: "Placeholder image 1",
+              },
+              title: "Article Title",
+              description: "Lorem ipsum dolor sit amet consectetur elit",
+              button: { title: "Read more", variant: "link", size: "link" },
+            },
+            {
+              url: "#",
+              image: {
+                src: "https://relume-assets.s3.amazonaws.com/placeholder-image-landscape.svg",
+                alt: "Placeholder image 2",
+              },
+              title: "Article Title",
+              description: "Lorem ipsum dolor sit amet consectetur elit",
+              button: { title: "Read more", variant: "link", size: "link" },
+            },
+          ],
+        },
+        button: {
+          title: "See all articles",
+          variant: "link",
+          size: "link",
+          iconRight: <RxChevronRight className="size-6" />,
+        },
+      },
+    },
     {
       title: "Link Four",
       url: "#",
@@ -405,14 +1118,14 @@ export const Navbar5Defaults: Navbar5Props = {
   ],
   buttons: [
     {
-      title: "Button",
+      title: "Buy Now",
       variant: "secondary",
       size: "sm",
     },
-    {
-      title: "Button",
-      size: "sm",
-    },
+    // {
+    //   title: "Button",
+    //   size: "sm",
+    // },
   ],
 };
 
