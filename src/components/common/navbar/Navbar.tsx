@@ -6,7 +6,9 @@ import type { ButtonProps } from "@relume_io/relume-ui";
 import { RxChevronRight } from "react-icons/rx";
 import { motion } from "framer-motion";
 import Image from "next/image";
-
+import Link from "next/link";
+import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 interface ProductData {
   imageSrc: string;
   name: string;
@@ -235,14 +237,22 @@ const hamburger = {
 export type Navbar5Props = React.ComponentPropsWithoutRef<"section"> &
   Partial<Props>;
 
-export const Navbar = (props: Navbar5Props) => {
+export const Navbar = (props: Navbar5Props,{params}:{params:{slug:string[]}}) => {   
   const { logo, links, buttons } = {
-    ...Navbar5Defaults,
+    // ...Navbar5Defaults,
     ...props,
   } as Props;
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const isMobile = useMediaQuery("(max-width: 991px)");
+
+  const pathname = usePathname();
+  const [url, setUrl] = useState('');
+
+  useEffect(() => {
+    setUrl(pathname);
+  }, [pathname]);
+
 
   return (
     <nav className="relative flex w-full items-center justify-between border-b border-border-primary bg-background-primary lg:min-h-18 lg:px-[5%] z-50">
@@ -297,12 +307,12 @@ export const Navbar = (props: Navbar5Props) => {
                     isMobile={isMobile}
                   />
                 ) : (
-                  <a
+                  <Link
                     href={link.url}
-                    className="block py-3 text-md focus-visible:outline-none lg:px-4 lg:py-6 lg:text-base"
+                    className={`block py-3 text-md focus-visible:outline-none lg:px-4 lg:py-6 lg:text-base ${link.url==url?"text-blue-300":"text-black"}`}
                   >
                     {link.title}
-                  </a>
+                  </Link>
                 )}
               </div>
             ))}
@@ -399,7 +409,7 @@ const SubMenu = ({
                     {group.title}
                   </h4>
                   {group.links.map((link, index) => (
-                    <a
+                    <Link
                       key={index}
                       href={link.url}
                       className="grid w-full grid-cols-[max-content_1fr] items-start gap-x-3 py-2 focus-visible:outline-none"
@@ -413,7 +423,7 @@ const SubMenu = ({
                           {link.description}
                         </p>
                       </div>
-                    </a>
+                    </Link>
                   ))}
                 </div>
               ))}
@@ -425,7 +435,7 @@ const SubMenu = ({
                 </h4>
                 <div className="grid auto-cols-fr grid-cols-1 grid-rows-[auto_auto] items-start gap-y-2 lg:grid-rows-[auto]">
                   {megaMenu.featuredSections.links.map((link, index) => (
-                    <a
+                    <Link
                       key={index}
                       href={link.url}
                       className="flex auto-cols-fr grid-cols-[0.6fr_1fr] flex-col gap-x-6 py-2 focus-visible:outline-none md:grid"
@@ -454,7 +464,7 @@ const SubMenu = ({
                           </div>
                         )}
                       </div>
-                    </a>
+                    </Link>
                   ))}
                 </div>
                 <div className="flex items-center">
@@ -624,510 +634,6 @@ function ListSection({ items, children }: ListSectionProps) {
   );
 }
 
-export const Navbar5Defaults: Navbar5Props = {
-  logo: {
-    url: "#",
-    src: "https://relume-assets.s3.amazonaws.com/logo-image.svg",
-    alt: "Logo image",
-  },
-  links: [
-    {
-      title: "Link One",
-      url: "#",
-      megaMenu: {
-        categoryLinks: [
-          {
-            title: "Page group one",
-            links: [
-              {
-                url: "#",
-                image: {
-                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-                  alt: "Icon 1",
-                },
-                title: "Page One",
-                description: "Lorem ipsum dolor sit amet consectetur elit",
-              },
-              {
-                url: "#",
-                image: {
-                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-                  alt: "Icon 2",
-                },
-                title: "Page Two",
-                description: "Lorem ipsum dolor sit amet consectetur elit",
-              },
-              {
-                url: "#",
-                image: {
-                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-                  alt: "Icon 3",
-                },
-                title: "Page Three",
-                description: "Lorem ipsum dolor sit amet consectetur elit",
-              },
-              {
-                url: "#",
-                image: {
-                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-                  alt: "Icon 4",
-                },
-                title: "Page Four",
-                description: "Lorem ipsum dolor sit amet consectetur elit",
-              },
-            ],
-          },
-          {
-            title: "Page group two",
-            links: [
-              {
-                url: "#",
-                image: {
-                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-                  alt: "Icon 5",
-                },
-                title: "Page Five",
-                description: "Lorem ipsum dolor sit amet consectetur elit",
-              },
-              {
-                url: "#",
-                image: {
-                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-                  alt: "Icon 6",
-                },
-                title: "Page Six",
-                description: "Lorem ipsum dolor sit amet consectetur elit",
-              },
-              {
-                url: "#",
-                image: {
-                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-                  alt: "Icon 7",
-                },
-                title: "Page Seven",
-                description: "Lorem ipsum dolor sit amet consectetur elit",
-              },
-              {
-                url: "#",
-                image: {
-                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-                  alt: "Icon 8",
-                },
-                title: "Page Eight",
-                description: "Lorem ipsum dolor sit amet consectetur elit",
-              },
-            ],
-          },
-        ],
-        featuredSections: {
-          title: "Featured from Blog",
-          links: [
-            {
-              url: "#",
-              image: {
-                src: "https://relume-assets.s3.amazonaws.com/placeholder-image-landscape.svg",
-                alt: "Placeholder image 1",
-              },
-              title: "Article Title",
-              description: "Lorem ipsum dolor sit amet consectetur elit",
-              button: { title: "Read more", variant: "link", size: "link" },
-            },
-            {
-              url: "#",
-              image: {
-                src: "https://relume-assets.s3.amazonaws.com/placeholder-image-landscape.svg",
-                alt: "Placeholder image 2",
-              },
-              title: "Article Title",
-              description: "Lorem ipsum dolor sit amet consectetur elit",
-              button: { title: "Read more", variant: "link", size: "link" },
-            },
-          ],
-        },
-        button: {
-          title: "See all articles",
-          variant: "link",
-          size: "link",
-          iconRight: <RxChevronRight className="size-6" />,
-        },
-      },
-    },
-    {
-      title: "Link Two",
-      url: "#",
-      megaMenu: {
-        categoryLinks: [
-          {
-            title: "Page group one",
-            links: [
-              {
-                url: "#",
-                image: {
-                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-                  alt: "Icon 1",
-                },
-                title: "Page One",
-                description: "Lorem ipsum dolor sit amet consectetur elit",
-              },
-              {
-                url: "#",
-                image: {
-                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-                  alt: "Icon 2",
-                },
-                title: "Page Two",
-                description: "Lorem ipsum dolor sit amet consectetur elit",
-              },
-              {
-                url: "#",
-                image: {
-                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-                  alt: "Icon 3",
-                },
-                title: "Page Three",
-                description: "Lorem ipsum dolor sit amet consectetur elit",
-              },
-              {
-                url: "#",
-                image: {
-                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-                  alt: "Icon 4",
-                },
-                title: "Page Four",
-                description: "Lorem ipsum dolor sit amet consectetur elit",
-              },
-            ],
-          },
-          {
-            title: "Page group two",
-            links: [
-              {
-                url: "#",
-                image: {
-                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-                  alt: "Icon 5",
-                },
-                title: "Page Five",
-                description: "Lorem ipsum dolor sit amet consectetur elit",
-              },
-              {
-                url: "#",
-                image: {
-                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-                  alt: "Icon 6",
-                },
-                title: "Page Six",
-                description: "Lorem ipsum dolor sit amet consectetur elit",
-              },
-              {
-                url: "#",
-                image: {
-                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-                  alt: "Icon 7",
-                },
-                title: "Page Seven",
-                description: "Lorem ipsum dolor sit amet consectetur elit",
-              },
-              {
-                url: "#",
-                image: {
-                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-                  alt: "Icon 8",
-                },
-                title: "Page Eight",
-                description: "Lorem ipsum dolor sit amet consectetur elit",
-              },
-            ],
-          },
-        ],
-        featuredSections: {
-          title: "Featured from Blog",
-          links: [
-            {
-              url: "#",
-              image: {
-                src: "https://relume-assets.s3.amazonaws.com/placeholder-image-landscape.svg",
-                alt: "Placeholder image 1",
-              },
-              title: "Article Title",
-              description: "Lorem ipsum dolor sit amet consectetur elit",
-              button: { title: "Read more", variant: "link", size: "link" },
-            },
-            {
-              url: "#",
-              image: {
-                src: "https://relume-assets.s3.amazonaws.com/placeholder-image-landscape.svg",
-                alt: "Placeholder image 2",
-              },
-              title: "Article Title",
-              description: "Lorem ipsum dolor sit amet consectetur elit",
-              button: { title: "Read more", variant: "link", size: "link" },
-            },
-          ],
-        },
-        button: {
-          title: "See all articles",
-          variant: "link",
-          size: "link",
-          iconRight: <RxChevronRight className="size-6" />,
-        },
-      },
-    },
-    {
-      title: "Link Three",
-      url: "#",
-      megaMenu: {
-        categoryLinks: [
-          {
-            title: "Page group one",
-            links: [
-              {
-                url: "#",
-                image: {
-                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-                  alt: "Icon 1",
-                },
-                title: "Page One",
-                description: "Lorem ipsum dolor sit amet consectetur elit",
-              },
-              {
-                url: "#",
-                image: {
-                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-                  alt: "Icon 2",
-                },
-                title: "Page Two",
-                description: "Lorem ipsum dolor sit amet consectetur elit",
-              },
-              {
-                url: "#",
-                image: {
-                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-                  alt: "Icon 3",
-                },
-                title: "Page Three",
-                description: "Lorem ipsum dolor sit amet consectetur elit",
-              },
-              {
-                url: "#",
-                image: {
-                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-                  alt: "Icon 4",
-                },
-                title: "Page Four",
-                description: "Lorem ipsum dolor sit amet consectetur elit",
-              },
-            ],
-          },
-          {
-            title: "Page group two",
-            links: [
-              {
-                url: "#",
-                image: {
-                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-                  alt: "Icon 5",
-                },
-                title: "Page Five",
-                description: "Lorem ipsum dolor sit amet consectetur elit",
-              },
-              {
-                url: "#",
-                image: {
-                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-                  alt: "Icon 6",
-                },
-                title: "Page Six",
-                description: "Lorem ipsum dolor sit amet consectetur elit",
-              },
-              {
-                url: "#",
-                image: {
-                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-                  alt: "Icon 7",
-                },
-                title: "Page Seven",
-                description: "Lorem ipsum dolor sit amet consectetur elit",
-              },
-              {
-                url: "#",
-                image: {
-                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-                  alt: "Icon 8",
-                },
-                title: "Page Eight",
-                description: "Lorem ipsum dolor sit amet consectetur elit",
-              },
-            ],
-          },
-        ],
-        featuredSections: {
-          title: "Featured from Blog",
-          links: [
-            {
-              url: "#",
-              image: {
-                src: "https://relume-assets.s3.amazonaws.com/placeholder-image-landscape.svg",
-                alt: "Placeholder image 1",
-              },
-              title: "Article Title",
-              description: "Lorem ipsum dolor sit amet consectetur elit",
-              button: { title: "Read more", variant: "link", size: "link" },
-            },
-            {
-              url: "#",
-              image: {
-                src: "https://relume-assets.s3.amazonaws.com/placeholder-image-landscape.svg",
-                alt: "Placeholder image 2",
-              },
-              title: "Article Title",
-              description: "Lorem ipsum dolor sit amet consectetur elit",
-              button: { title: "Read more", variant: "link", size: "link" },
-            },
-          ],
-        },
-        button: {
-          title: "See all articles",
-          variant: "link",
-          size: "link",
-          iconRight: <RxChevronRight className="size-6" />,
-        },
-      },
-    },
-    {
-      title: "Link Four",
-      url: "#",
-      megaMenu: {
-        categoryLinks: [
-          {
-            title: "Page group one",
-            links: [
-              {
-                url: "#",
-                image: {
-                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-                  alt: "Icon 1",
-                },
-                title: "Page One",
-                description: "Lorem ipsum dolor sit amet consectetur elit",
-              },
-              {
-                url: "#",
-                image: {
-                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-                  alt: "Icon 2",
-                },
-                title: "Page Two",
-                description: "Lorem ipsum dolor sit amet consectetur elit",
-              },
-              {
-                url: "#",
-                image: {
-                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-                  alt: "Icon 3",
-                },
-                title: "Page Three",
-                description: "Lorem ipsum dolor sit amet consectetur elit",
-              },
-              {
-                url: "#",
-                image: {
-                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-                  alt: "Icon 4",
-                },
-                title: "Page Four",
-                description: "Lorem ipsum dolor sit amet consectetur elit",
-              },
-            ],
-          },
-          {
-            title: "Page group two",
-            links: [
-              {
-                url: "#",
-                image: {
-                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-                  alt: "Icon 5",
-                },
-                title: "Page Five",
-                description: "Lorem ipsum dolor sit amet consectetur elit",
-              },
-              {
-                url: "#",
-                image: {
-                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-                  alt: "Icon 6",
-                },
-                title: "Page Six",
-                description: "Lorem ipsum dolor sit amet consectetur elit",
-              },
-              {
-                url: "#",
-                image: {
-                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-                  alt: "Icon 7",
-                },
-                title: "Page Seven",
-                description: "Lorem ipsum dolor sit amet consectetur elit",
-              },
-              {
-                url: "#",
-                image: {
-                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
-                  alt: "Icon 8",
-                },
-                title: "Page Eight",
-                description: "Lorem ipsum dolor sit amet consectetur elit",
-              },
-            ],
-          },
-        ],
-        featuredSections: {
-          title: "Featured from Blog",
-          links: [
-            {
-              url: "#",
-              image: {
-                src: "https://relume-assets.s3.amazonaws.com/placeholder-image-landscape.svg",
-                alt: "Placeholder image 1",
-              },
-              title: "Article Title",
-              description: "Lorem ipsum dolor sit amet consectetur elit",
-              button: { title: "Read more", variant: "link", size: "link" },
-            },
-            {
-              url: "#",
-              image: {
-                src: "https://relume-assets.s3.amazonaws.com/placeholder-image-landscape.svg",
-                alt: "Placeholder image 2",
-              },
-              title: "Article Title",
-              description: "Lorem ipsum dolor sit amet consectetur elit",
-              button: { title: "Read more", variant: "link", size: "link" },
-            },
-          ],
-        },
-        button: {
-          title: "See all articles",
-          variant: "link",
-          size: "link",
-          iconRight: <RxChevronRight className="size-6" />,
-        },
-      },
-    },
-  ],
-  buttons: [
-    {
-      title: "Buy Now",
-      variant: "secondary",
-      size: "sm",
-    },
-    // {
-    //   title: "Button",
-    //   size: "sm",
-    // },
-  ],
-};
 
 const topLineVariants = {
   open: {

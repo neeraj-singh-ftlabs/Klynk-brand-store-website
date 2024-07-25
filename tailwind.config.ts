@@ -27,6 +27,6 @@ const config: Config = {
     },
   },
   presets: [require("@relume_io/relume-tailwind")],
-  plugins: [],
+  plugins: [ require("flowbite/plugin")],
 };
 export default config;
