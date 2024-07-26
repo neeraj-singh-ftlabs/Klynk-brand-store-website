@@ -14,6 +14,7 @@ import { Logo1Props, Trusted } from "@/components/views/riku/Trusted";
 import React from "react";
 import { RxChevronRight } from "react-icons/rx";
 import BlogsSection, { BlogPost } from "@/components/views/blog/BlogsSection";
+import NavigationTabs from "@/components/tabs/Tab";
 
 const Logo1Defaults: Logo1Props = {
   heading: "Trusted by top global companies for their cooking needs",
@@ -276,28 +277,36 @@ const blogPosts: BlogPost[] = [
   },
 ];
 
-const tagline = "Revolutionary"
-const heading = "Experience the Future of Cooking with Riku"
+const tagline = "Revolutionary";
+const heading = "Experience the Future of Cooking with Riku";
 const description =
-    "Introducing Riku, the world's first automatic rice and curry maker. Say goodbye to the hassle of cooking and enjoy delicious meals with just the touch of a button. With its innovative technology and user-friendly interface, Riku makes cooking easier and more convenient than ever before."
-  function Product() {
-    return (
-      <>
-        <ProductPage />
-        <Trusted {...Logo1Defaults} />
-        <TimelineSection />
-        <CookingRiku
-          tagline={tagline}
-          heading={heading}
-          description={description}
-        />
-        <SaveTime {...Layout381Defaults} />
-        <Possibilities {...Layout423Defaults} />
-        <BlogsSection blogPosts={blogPosts} headerProps={headerProps} />
-        <ProductFAQ {...Faq1Defaults} />
-        <StayUpdated {...Cta8Defaults} />
-      </>
-    );
-  };
+  "Introducing Riku, the world's first automatic rice and curry maker. Say goodbye to the hassle of cooking and enjoy delicious meals with just the touch of a button. With its innovative technology and user-friendly interface, Riku makes cooking easier and more convenient than ever before.";
+
+const tabs = [
+  { title: "Overview", url: "/riku/overview" },
+  { title: "Technology", url: "/riku/technology" },
+  { title: "Product", url: "/riku/product" },
+];
+
+function Product() {
+  return (
+    <div>
+      <NavigationTabs tabs={tabs} />
+      <ProductPage />
+      <Trusted {...Logo1Defaults} />
+      <TimelineSection />
+      <CookingRiku
+        tagline={tagline}
+        heading={heading}
+        description={description}
+      />
+      <SaveTime {...Layout381Defaults} />
+      <Possibilities {...Layout423Defaults} />
+      <BlogsSection blogPosts={blogPosts} headerProps={headerProps} />
+      <ProductFAQ {...Faq1Defaults} />
+      <StayUpdated {...Cta8Defaults} />
+    </div>
+  );
+}
 
 export default Product;
