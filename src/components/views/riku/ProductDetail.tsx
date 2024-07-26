@@ -5,8 +5,8 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
 const ProductPage: React.FC = () => {
   return (
-    <main className="flex flex-col px-16 py-20 bg-white max-md:px-5">
-      <BreadcrumbNav />
+    <main className="flex flex-col px-16 pb-20 bg-white max-md:px-5">
+      {/* <BreadcrumbNav /> */}
       <section className="pb-12 mt-6 max-md:max-w-full">
         <div className="flex gap-5 max-md:flex-col">
           <ProductImages />
@@ -99,8 +99,8 @@ export const ProductDetails: React.FC = () => {
           automatic cooking capabilities, you can enjoy delicious meals without
           the stress and effort.
         </p>
-              <Menu as="div" className="relative inline-block text-left mt-2 mb-5">
-                  <p>Variant</p>
+        <Menu as="div" className="relative inline-block text-left mt-2 mb-5">
+          <p>Variant</p>
           <div className=" flex mt-2">
             <MenuButton className="inline-flex w-full justify-start gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
               Select
@@ -258,7 +258,7 @@ export const QuantitySelector: React.FC = () => {
   const [quantity, setQuantity] = useState(1);
 
   return (
-    <div>
+    <div className="flex flex-col">
       <label
         htmlFor="quantity"
         className="mt-6 text-base leading-6 text-black max-md:max-w-full"
@@ -268,10 +268,12 @@ export const QuantitySelector: React.FC = () => {
       <input
         id="quantity"
         type="number"
+        name="quantity"
         value={quantity}
         onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value)))}
         className="self-start p-3 mt-2 text-base leading-6 text-black whitespace-nowrap bg-white border border-black border-solid"
         min="1"
+        style={{ width: "70px" }}
       />
     </div>
   );
