@@ -21,9 +21,8 @@ const NavigationTabs: React.FC<NavigationTabsProps> = ({ tabs }) => {
     setUrl(pathname);
   }, [pathname]);
   return (
-    <section className="px-[5%]">
-      {/* <div className="container"> */}
-      <ul className="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">
+    <section className="px-[5%] ">
+      <ul className="hidden md:flex flex-row justify-end text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">
         {tabs.map((tab, index) => (
           <li key={index} className="me-2">
             <Link
@@ -37,7 +36,6 @@ const NavigationTabs: React.FC<NavigationTabsProps> = ({ tabs }) => {
           </li>
         ))}
       </ul>
-      {/* </div> */}
     </section>
   );
 };

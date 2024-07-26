@@ -15,6 +15,11 @@ import React from "react";
 import { RxChevronRight } from "react-icons/rx";
 import BlogsSection, { BlogPost } from "@/components/views/blog/BlogsSection";
 import NavigationTabs from "@/components/tabs/Tab";
+import {
+  Testimonial17 as CustomerTestimonials,
+  Testimonial17Props,
+} from "@/components/views/home/CustomerTestimonials";
+import { ContentSection } from "@/components/views/riku/PreOrder";
 
 const Logo1Defaults: Logo1Props = {
   heading: "Trusted by top global companies for their cooking needs",
@@ -276,25 +281,108 @@ const blogPosts: BlogPost[] = [
     readMore: false,
   },
 ];
-
+const tabs = [
+  { title: "Overview", url: "/riku/overview" },
+  { title: "Technology", url: "/riku/technology" },
+  { title: "Product", url: "/riku/product" },
+  { title: "Cooking", url: "/riku/cooking" },
+];
 const tagline = "Revolutionary";
 const heading = "Experience the Future of Cooking with Riku";
 const description =
   "Introducing Riku, the world's first automatic rice and curry maker. Say goodbye to the hassle of cooking and enjoy delicious meals with just the touch of a button. With its innovative technology and user-friendly interface, Riku makes cooking easier and more convenient than ever before.";
 
-const tabs = [
-  { title: "Overview", url: "/riku/overview" },
-  { title: "Technology", url: "/riku/technology" },
-  { title: "Product", url: "/riku/product" },
+const timelineData: any = [
+  {
+    date: "Date",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets/TEMP/ddaebb816da109a7d9a51eb2ffc5b32a3ad1163ad276b2d4d289ede0166be2f6?apiKey=cad9cc51066f446382ba26fef0169eb1&&apiKey=cad9cc51066f446382ba26fef0169eb1",
+  },
+  {
+    date: "Date",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets/TEMP/ddaebb816da109a7d9a51eb2ffc5b32a3ad1163ad276b2d4d289ede0166be2f6?apiKey=cad9cc51066f446382ba26fef0169eb1&&apiKey=cad9cc51066f446382ba26fef0169eb1",
+  },
+  {
+    date: "Date",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets/TEMP/ddaebb816da109a7d9a51eb2ffc5b32a3ad1163ad276b2d4d289ede0166be2f6?apiKey=cad9cc51066f446382ba26fef0169eb1&&apiKey=cad9cc51066f446382ba26fef0169eb1",
+  },
+  {
+    date: "Date",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets/TEMP/ddaebb816da109a7d9a51eb2ffc5b32a3ad1163ad276b2d4d289ede0166be2f6?apiKey=cad9cc51066f446382ba26fef0169eb1&&apiKey=cad9cc51066f446382ba26fef0169eb1",
+  },
+  {
+    date: "Date",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+    imageUrl:
+      "https://cdn.builder.io/api/v1/image/assets/TEMP/ddaebb816da109a7d9a51eb2ffc5b32a3ad1163ad276b2d4d289ede0166be2f6?apiKey=cad9cc51066f446382ba26fef0169eb1&&apiKey=cad9cc51066f446382ba26fef0169eb1",
+  },
 ];
+const Testimonial17Defaults: Testimonial17Props = {
+  heading: "Customer testimonials",
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  testimonials: [
+    {
+      testimonial:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.",
+      avatar: {
+        src: "https://relume-assets.s3.amazonaws.com/placeholder-image.svg",
+        alt: "Testimonial avatar 1",
+      },
+      name: "Name Surname",
+      position: "Position",
+      companyName: "Company name",
+      numberOfStars: 5,
+    },
+    {
+      testimonial:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.",
+      avatar: {
+        src: "https://relume-assets.s3.amazonaws.com/placeholder-image.svg",
+        alt: "Testimonial avatar 2",
+      },
+      name: "Name Surname",
+      position: "Position",
+      companyName: "Company name",
+      numberOfStars: 5,
+    },
+    {
+      testimonial:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.",
+      avatar: {
+        src: "https://relume-assets.s3.amazonaws.com/placeholder-image.svg",
+        alt: "Testimonial avatar 3",
+      },
+      name: "Name Surname",
+      position: "Position",
+      companyName: "Company name",
+      numberOfStars: 5,
+    },
+  ],
+};
+const PreOrderData: any = {
+  title: "Pre-order Riku today!",
+  description: "Experience the future of home cooking with Riku.",
+};
 
 function Product() {
   return (
-    <div>
+    <>
       <NavigationTabs tabs={tabs} />
       <ProductPage />
       <Trusted {...Logo1Defaults} />
-      <TimelineSection />
+      <TimelineSection timelineData={timelineData} />
       <CookingRiku
         tagline={tagline}
         heading={heading}
@@ -303,9 +391,11 @@ function Product() {
       <SaveTime {...Layout381Defaults} />
       <Possibilities {...Layout423Defaults} />
       <BlogsSection blogPosts={blogPosts} headerProps={headerProps} />
+      <ContentSection {...PreOrderData} />
       <ProductFAQ {...Faq1Defaults} />
+      <CustomerTestimonials {...Testimonial17Defaults} />
       <StayUpdated {...Cta8Defaults} />
-    </div>
+    </>
   );
 }
 

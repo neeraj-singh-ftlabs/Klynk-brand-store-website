@@ -1,50 +1,17 @@
 import React from "react";
 
-interface TimelineData {
+interface timelineData {
   date: string;
-  description: string;
   imageUrl: string;
+  description: string;
 }
 
-const timelineData: TimelineData[] = [
-  {
-    date: "Date",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
-    imageUrl:
-      "https://cdn.builder.io/api/v1/image/assets/TEMP/ddaebb816da109a7d9a51eb2ffc5b32a3ad1163ad276b2d4d289ede0166be2f6?apiKey=cad9cc51066f446382ba26fef0169eb1&&apiKey=cad9cc51066f446382ba26fef0169eb1",
-  },
-  {
-    date: "Date",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
-    imageUrl:
-      "https://cdn.builder.io/api/v1/image/assets/TEMP/ddaebb816da109a7d9a51eb2ffc5b32a3ad1163ad276b2d4d289ede0166be2f6?apiKey=cad9cc51066f446382ba26fef0169eb1&&apiKey=cad9cc51066f446382ba26fef0169eb1",
-  },
-  {
-    date: "Date",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
-    imageUrl:
-      "https://cdn.builder.io/api/v1/image/assets/TEMP/ddaebb816da109a7d9a51eb2ffc5b32a3ad1163ad276b2d4d289ede0166be2f6?apiKey=cad9cc51066f446382ba26fef0169eb1&&apiKey=cad9cc51066f446382ba26fef0169eb1",
-  },
-  {
-    date: "Date",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
-    imageUrl:
-      "https://cdn.builder.io/api/v1/image/assets/TEMP/ddaebb816da109a7d9a51eb2ffc5b32a3ad1163ad276b2d4d289ede0166be2f6?apiKey=cad9cc51066f446382ba26fef0169eb1&&apiKey=cad9cc51066f446382ba26fef0169eb1",
-  },
-  {
-    date: "Date",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
-    imageUrl:
-      "https://cdn.builder.io/api/v1/image/assets/TEMP/ddaebb816da109a7d9a51eb2ffc5b32a3ad1163ad276b2d4d289ede0166be2f6?apiKey=cad9cc51066f446382ba26fef0169eb1&&apiKey=cad9cc51066f446382ba26fef0169eb1",
-  },
-];
-
-const TimelineSection: React.FC = () => {
+interface TimelineProps {
+  timelineData: timelineData[];
+}
+// export type TimlineProps = React.ComponentPropsWithoutRef<"section"> &
+//   Partial<Props>;
+const TimelineSection: React.FC<TimelineProps> = ({ timelineData }) => {
   return (
     <section className="flex flex-col items-start px-16 py-20 bg-white max-md:px-5">
       <h2 className="mt-8 text-base font-semibold leading-6 text-black max-md:max-w-full">
@@ -73,7 +40,7 @@ const TimelineSection: React.FC = () => {
       </div>
       <div className="flex gap-2 self-stretch mt-20 max-md:flex-wrap max-md:mt-10">
         {/* <div className="flex-1 shrink-0 my-auto bg-black h-[3px]" /> */}
-        {timelineData.map((item, index) => (
+        {timelineData.map((item: any, index: number) => (
           <TimelineItem
             key={index}
             date={item.date}

@@ -485,6 +485,7 @@ const tabs = [
   { title: 'Overview', url: '/riku/overview' },
   { title: 'Technology', url: '/riku/technology' },
   { title: 'Product', url: '/riku/product' },
+  { title: "Cooking", url: "/riku/cooking" },
 ];
 function Technology() {
   return (

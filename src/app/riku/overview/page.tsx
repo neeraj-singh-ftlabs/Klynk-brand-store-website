@@ -259,6 +259,7 @@ const heroProps: Header5Props = {
     { title: 'Overview', url: '/riku/overview' },
     { title: 'Technology', url: '/riku/technology' },
     { title: 'Product', url: '/riku/product' },
+    { title: "Cooking", url: "/riku/cooking" },
   ];
 
 function Overview() {
@@ -288,6 +289,8 @@ function Overview() {
         title="Upgrade Your Cooking Experience Today"
         description="Say goodbye to long hours in the kitchen and enjoy delicious meals effortlessly."
         imageSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/1f23a3427c8904e04004d18a7bac5335c7d9718101b21c60eccca03b5419b2fb?apiKey=971b6410d97242e7b97afd5891e4e40f&&apiKey=971b6410d97242e7b97afd5891e4e40f"
+          primaryButtonText="Learn More"
+        secondaryButtonText="Buy Now"
       />
       <Faq {...Faq3Defaults} />
     </div>

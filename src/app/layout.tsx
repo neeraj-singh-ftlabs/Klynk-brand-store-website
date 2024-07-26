@@ -28,8 +28,8 @@ const Navbar5Defaults: Navbar5Props = {
     //       url: "/riku/product",}
     //       ,
     {
-      title: "Link One",
-      url: "#",
+      title: "Riku",
+      url: "/riku/overview",
       megaMenu: {
         categoryLinks: [
           {
@@ -149,8 +149,8 @@ const Navbar5Defaults: Navbar5Props = {
       },
     },
     {
-      title: "Link Two",
-      url: "#",
+      title: "Semi",
+      url: "/semi/dashboard",
       megaMenu: {
         categoryLinks: [
           {

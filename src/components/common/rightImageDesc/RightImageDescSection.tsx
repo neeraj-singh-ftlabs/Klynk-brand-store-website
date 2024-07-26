@@ -4,6 +4,8 @@ interface UpgradeExpSectionProps {
   title: string;
   description: string;
   imageSrc: string;
+  primaryButtonText?: string;
+  secondaryButtonText?: string;
 }
 
 
@@ -11,25 +13,28 @@ interface UpgradeExpSectionProps {
 
 
 interface ButtonProps {
-    primary?: boolean;
-    children: React.ReactNode;
-  }
-  
-  const Button: React.FC<ButtonProps> = ({ primary, children }) => {
-    const baseClasses = "px-6 py-3 border border-black border-solid max-md:px-5";
-    const primaryClasses = "text-white bg-black";
-    const secondaryClasses = "text-black";
-  
-    return (
-      <button className={`${baseClasses} ${primary ? primaryClasses : secondaryClasses}`}>
-        {children}
-      </button>
-    );
-  };
+  variant?: 'primary' | 'secondary';
+  children: React.ReactNode;
+}
+
+const Button: React.FC<ButtonProps> = ({ variant = 'secondary', children }) => {
+  const baseClasses = "px-6 py-3 border border-black border-solid max-md:px-5";
+  const primaryClasses = "text-white bg-black";
+  const secondaryClasses = "text-black";
+
+  const buttonClasses = variant === 'primary' ? primaryClasses : secondaryClasses;
+
+  return (
+    <button className={`${baseClasses} ${buttonClasses}`}>
+      {children}
+    </button>
+  );
+};
 
 
 
-  const UpgradeExpSection: React.FC<UpgradeExpSectionProps> = ({ title, description, imageSrc }) => {
+
+  const UpgradeExpSection: React.FC<UpgradeExpSectionProps> = ({ title, description, imageSrc, primaryButtonText, secondaryButtonText }) => {
     return (
       <section className="flex flex-col justify-center  bg-white max-md:px-5 px-[5%] py-12 md:py-16 lg:py-20">
         <div className="mt-8 border border-black border-solid max-md:mr-1 max-md:max-w-full container">
@@ -43,8 +48,8 @@ interface ButtonProps {
                   {description}
                 </p>
                 <div className="flex gap-4 items-start self-start pt-4 mt-6 text-base leading-6 whitespace-nowrap">
-                  <Button primary>Button</Button>
-                  <Button>Button</Button>
+                  <Button variant="primary">{primaryButtonText}</Button>
+                  <Button variant="secondary">{secondaryButtonText}</Button>
                 </div>
               </div>
             </div>

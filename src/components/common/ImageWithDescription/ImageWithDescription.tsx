@@ -14,6 +14,7 @@ type ImageProps = {
 type FeaturesProps = {
   icon: ImageProps;
   paragraph: string;
+  title?:string
 };
 
 type Props = {
@@ -23,13 +24,16 @@ type Props = {
   features: FeaturesProps[];
   buttons: ButtonProps[];
   image: ImageProps;
-  reverse:Boolean
+  reverse?:Boolean
+  gridView?:boolean;
+  buttonsView:boolean;
+  gridIconView?:boolean
 };
 
 export type Layout16Props = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
 
 export const Layout17 = (props: Layout16Props) => {
-  const { tagline, heading, description, features, buttons, image , reverse=false } = {
+  const { tagline, heading, description, features, buttons, image , reverse=false, gridView=false,buttonsView=true, gridIconView=true } = {
     // ...Layout16Defaults,
     ...props,
   } as Props;
@@ -69,7 +73,23 @@ export const Layout17 = (props: Layout16Props) => {
                 </li>
               ))}
             </ul>} */}
-            {buttons && buttons.length && (
+
+            <div className="py-2 mt-8 max-md:max-w-full">
+              <div className="flex gap-5 max-md:flex-col">
+                {gridView && features && features.length &&  features.map((feature, index) => (
+                 <div  key ={index} className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
+                 <div className="flex flex-col grow text-black max-md:mt-8">
+                   {gridIconView&&<img loading="lazy" src={"https://relume-assets.s3.amazonaws.com/relume-icon.svg"} alt="" className="w-12 aspect-square" />}
+                   <h3 className="mt-4 text-xl font-bold leading-7">{feature.title}</h3>
+                   <p className="mt-4 text-base leading-6">{feature.paragraph}</p>
+                 </div>
+               </div>
+                ))}
+              </div>
+            </div>
+            
+           
+            {buttonsView&&buttons && buttons.length && (
               <div className="mt-6 flex items-center gap-x-4 md:mt-8">
                 {buttons.map((button, index) => (
                   <Button key={index} {...button}>

@@ -19,7 +19,7 @@ type Props = {
   description: string;
   footerHeading: string;
   footerDescription: string;
-  button: ButtonProps;
+  button: ButtonProps; 
   questions: QuestionsProps[];
 };
 
