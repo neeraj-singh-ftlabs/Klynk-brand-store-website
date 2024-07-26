@@ -18,7 +18,7 @@ export type Logo4Props = React.ComponentPropsWithoutRef<"section"> & Partial<Pro
 
 export const Logo4 = (props: Logo4Props) => {
   const { heading, description, buttons, logos } = {
-    ...Logo4Defaults,
+    // ...Logo4Defaults,
     ...props,
   } as Props;
   return (
@@ -52,53 +52,53 @@ export const Logo4 = (props: Logo4Props) => {
   );
 };
 
-export const Logo4Defaults: Logo4Props = {
-  heading: "Medium length section heading goes here",
-  description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
-  buttons: [
-    { title: "Button", variant: "secondary" },
-    {
-      title: "Button",
-      variant: "link",
-      size: "link",
-      iconRight: <RxChevronRight className="size-6" />,
-    },
-  ],
-  logos: [
-    {
-      src: "https://relume-assets.s3.amazonaws.com/webflow-logo.svg",
-      alt: "Placeholder image",
-    },
-    {
-      src: "https://relume-assets.s3.amazonaws.com/webflow-logo.svg",
-      alt: "Placeholder image",
-    },
-    {
-      src: "https://relume-assets.s3.amazonaws.com/relume-logo.svg",
-      alt: "Placeholder image",
-    },
-    {
-      src: "https://relume-assets.s3.amazonaws.com/relume-logo.svg",
-      alt: "Placeholder image",
-    },
-    {
-      src: "https://relume-assets.s3.amazonaws.com/webflow-logo.svg",
-      alt: "Placeholder image",
-    },
-    {
-      src: "https://relume-assets.s3.amazonaws.com/webflow-logo.svg",
-      alt: "Placeholder image",
-    },
-    {
-      src: "https://relume-assets.s3.amazonaws.com/relume-logo.svg",
-      alt: "Placeholder image",
-    },
-    {
-      src: "https://relume-assets.s3.amazonaws.com/relume-logo.svg",
-      alt: "Placeholder image",
-    },
-  ],
-};
+// export const Logo4Defaults: Logo4Props = {
+//   heading: "Discover the Latest Awards and News",
+//   description:
+//     "Stay updated with our company's achievements and exciting updates.",
+//   buttons: [
+//     { title: "Learn More", variant: "secondary" },
+//     {
+//       title: "Sign Up",
+//       variant: "link",
+//       size: "link",
+//       iconRight: <RxChevronRight className="size-6" />,
+//     },
+//   ],
+//   logos: [
+//     {
+//       src: "https://relume-assets.s3.amazonaws.com/webflow-logo.svg",
+//       alt: "Placeholder image",
+//     },
+//     {
+//       src: "https://relume-assets.s3.amazonaws.com/webflow-logo.svg",
+//       alt: "Placeholder image",
+//     },
+//     {
+//       src: "https://relume-assets.s3.amazonaws.com/relume-logo.svg",
+//       alt: "Placeholder image",
+//     },
+//     {
+//       src: "https://relume-assets.s3.amazonaws.com/relume-logo.svg",
+//       alt: "Placeholder image",
+//     },
+//     {
+//       src: "https://relume-assets.s3.amazonaws.com/webflow-logo.svg",
+//       alt: "Placeholder image",
+//     },
+//     {
+//       src: "https://relume-assets.s3.amazonaws.com/webflow-logo.svg",
+//       alt: "Placeholder image",
+//     },
+//     {
+//       src: "https://relume-assets.s3.amazonaws.com/relume-logo.svg",
+//       alt: "Placeholder image",
+//     },
+//     {
+//       src: "https://relume-assets.s3.amazonaws.com/relume-logo.svg",
+//       alt: "Placeholder image",
+//     },
+//   ],
+// };
 
 Logo4.displayName = "Logo4";

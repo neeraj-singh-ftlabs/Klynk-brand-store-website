@@ -1,9 +1,10 @@
 interface BlogCardProps {
   imageUrl: string;
-  category: string;
-  readTime: string;
+  category?: string;
+  readTime?: string;
   title: string;
   description: string;
+  readMore?:boolean
 }
 const BlogCard: React.FC<BlogCardProps> = ({
   imageUrl,
@@ -11,25 +12,26 @@ const BlogCard: React.FC<BlogCardProps> = ({
   readTime,
   title,
   description,
+  readMore
 }) => {
   return (
     <article className="flex flex-col w-[33%] max-md:ml-0 max-md:w-full">
-      <div className="flex flex-col grow text-base leading-6 text-black max-md:mt-8">
-        <img
+      <div className={`flex flex-col grow text-base leading-6 text-black max-md:mt-8 ${!readMore?"text-center":""}`}>
+        {imageUrl&&<img
           loading="lazy"
           src={imageUrl}
           alt="Blog post thumbnail"
           className="w-full aspect-[1.39]"
-        />
+        />}
         <div className="flex gap-4 self-start mt-6 text-sm font-semibold">
-          <span className="px-2 py-1 whitespace-nowrap bg-zinc-100">
+          {category&&<span className="px-2 py-1 whitespace-nowrap bg-zinc-100">
             {category}
-          </span>
-          <span className="my-auto">{readTime}</span>
+          </span>}
+          {readTime&&<span className="my-auto">{readTime}</span>}
         </div>
         <h3 className="mt-4 text-2xl font-bold leading-8">{title}</h3>
-        <p className="mt-2 leading-6">{description}</p>
-        <div className="flex gap-2 justify-center self-start mt-6">
+       {description&&<p className="mt-2 leading-6">{description}</p>}
+       {readMore&& <div className="flex gap-2 justify-center self-start mt-6">
           <span>Read more</span>
           <img
             loading="lazy"
@@ -37,7 +39,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
             alt=""
             className="shrink-0 w-6 aspect-square"
           />
-        </div>
+        </div>}
       </div>
     </article>
   );

@@ -37,14 +37,29 @@ export const Layout17 = (props: Layout16Props) => {
     <section className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
         <div className="grid grid-cols-1 gap-y-12 md:grid-cols-2 md:items-center md:gap-x-12 lg:gap-x-20">
-        <div className={`${reverse?"hidden":"block"}`}>
-            <img src={image.src} className="w-full object-cover" alt={image.alt} />
+          <div className={`${reverse ? "hidden" : "block"}`}>
+            <img
+              src={image.src}
+              className="w-full object-cover"
+              alt={image.alt}
+            />
           </div>
           <div>
-            {tagline && <p className="mb-3 font-semibold md:mb-4">{tagline}</p>}
-           {heading && <h1 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">{heading}</h1>}
-            <p className="mb-5 text-base md:mb-6 md:text-md">{description}</p>
-           { features && features.length && <ul className="grid grid-cols-1 gap-4 py-2">
+            {tagline && (
+              <p className="mb-3 font-semibold md:mb-4">Revolutionary</p>
+            )}
+            {heading && (
+              <h1 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
+                Experience the Perfect Rice Every Time with Riku
+              </h1>
+            )}
+            <p className="mb-5 text-base md:mb-6 md:text-md">
+              Riku is the ultimate solution for hassle-free cooking. With its
+              capacity to serve 4 people, advanced overflow prevention system,
+              and ability to create varied textures, Riku takes the guesswork
+              out of cooking rice.
+            </p>
+            {/* { features && features.length && <ul className="grid grid-cols-1 gap-4 py-2">
               {features.map((feature, index) => (
                 <li key={index} className="flex self-start">
                   <div className="mr-4 flex-none self-start">
@@ -53,20 +68,25 @@ export const Layout17 = (props: Layout16Props) => {
                   <span>{feature.paragraph}</span>
                 </li>
               ))}
-            </ul>}
-           {buttons && buttons.length &&  <div className="mt-6 flex items-center gap-x-4 md:mt-8">
-              {buttons.map((button, index) => (
-                <Button key={index} {...button}>
-                  {button.title}
-                </Button>
-              ))}
-            </div>}
+            </ul>} */}
+            {buttons && buttons.length && (
+              <div className="mt-6 flex items-center gap-x-4 md:mt-8">
+                {buttons.map((button, index) => (
+                  <Button key={index} {...button}>
+                    {button.title}
+                  </Button>
+                ))}
+              </div>
+            )}
           </div>
 
-          <div className={`${reverse?"block":"hidden"}`}>
-            <img src={image.src} className="w-full object-cover" alt={image.alt} />
+          <div className={`${reverse ? "block" : "hidden"}`}>
+            <img
+              src={image.src}
+              className="w-full object-cover"
+              alt={image.alt}
+            />
           </div>
-         
         </div>
       </div>
     </section>

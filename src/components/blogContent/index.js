@@ -269,7 +269,7 @@ function BlogContent() {
                                 className="text-gray-800 hover:text-green-500 no-underline border-b-2 border-green-500"
                                 href="https://demo.ghost.io/welcome"
                             >
-                                "Casper"
+                                Casper
                             </a>{' '}
                             using Tailwind CSS and vanilla Javascript.
                         </p>

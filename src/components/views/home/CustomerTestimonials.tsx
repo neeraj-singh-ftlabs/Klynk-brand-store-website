@@ -24,7 +24,7 @@ export type Testimonial17Props = React.ComponentPropsWithoutRef<"section"> & Par
 
 export const Testimonial17 = (props: Testimonial17Props) => {
   const { heading, description, testimonials } = {
-    ...Testimonial17Defaults,
+    // ...Testimonial17Defaults,
     ...props,
   } as Props;
   return (
@@ -73,47 +73,47 @@ export const Testimonial17 = (props: Testimonial17Props) => {
   );
 };
 
-export const Testimonial17Defaults: Testimonial17Props = {
-  heading: "Customer testimonials",
-  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  testimonials: [
-    {
-      testimonial:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.",
-      avatar: {
-        src: "https://relume-assets.s3.amazonaws.com/placeholder-image.svg",
-        alt: "Testimonial avatar 1",
-      },
-      name: "Name Surname",
-      position: "Position",
-      companyName: "Company name",
-      numberOfStars: 5,
-    },
-    {
-      testimonial:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.",
-      avatar: {
-        src: "https://relume-assets.s3.amazonaws.com/placeholder-image.svg",
-        alt: "Testimonial avatar 2",
-      },
-      name: "Name Surname",
-      position: "Position",
-      companyName: "Company name",
-      numberOfStars: 5,
-    },
-    {
-      testimonial:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.",
-      avatar: {
-        src: "https://relume-assets.s3.amazonaws.com/placeholder-image.svg",
-        alt: "Testimonial avatar 3",
-      },
-      name: "Name Surname",
-      position: "Position",
-      companyName: "Company name",
-      numberOfStars: 5,
-    },
-  ],
-};
+// export const Testimonial17Defaults: Testimonial17Props = {
+//   heading: "Customer testimonials",
+//   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+//   testimonials: [
+//     {
+//       testimonial:
+//         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.",
+//       avatar: {
+//         src: "https://relume-assets.s3.amazonaws.com/placeholder-image.svg",
+//         alt: "Testimonial avatar 1",
+//       },
+//       name: "Name Surname",
+//       position: "Position",
+//       companyName: "Company name",
+//       numberOfStars: 5,
+//     },
+//     {
+//       testimonial:
+//         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.",
+//       avatar: {
+//         src: "https://relume-assets.s3.amazonaws.com/placeholder-image.svg",
+//         alt: "Testimonial avatar 2",
+//       },
+//       name: "Name Surname",
+//       position: "Position",
+//       companyName: "Company name",
+//       numberOfStars: 5,
+//     },
+//     {
+//       testimonial:
+//         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.",
+//       avatar: {
+//         src: "https://relume-assets.s3.amazonaws.com/placeholder-image.svg",
+//         alt: "Testimonial avatar 3",
+//       },
+//       name: "Name Surname",
+//       position: "Position",
+//       companyName: "Company name",
+//       numberOfStars: 5,
+//     },
+//   ],
+// };
 
 Testimonial17.displayName = "Testimonial17";
