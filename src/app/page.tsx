@@ -26,6 +26,8 @@ const firstSection: Layout16Props = {
       },
 
       paragraph: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+
+      title:"grid view title"
     },
     {
       icon: {

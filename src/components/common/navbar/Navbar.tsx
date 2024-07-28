@@ -7,8 +7,8 @@ import { RxChevronRight } from "react-icons/rx";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from 'react';
-import { usePathname } from 'next/navigation';
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 interface ProductData {
   imageSrc: string;
   name: string;
@@ -237,7 +237,10 @@ const hamburger = {
 export type Navbar5Props = React.ComponentPropsWithoutRef<"section"> &
   Partial<Props>;
 
-export const Navbar = (props: Navbar5Props,{params}:{params:{slug:string[]}}) => {   
+export const Navbar = (
+  props: Navbar5Props,
+  { params }: { params: { slug: string[] } }
+) => {
   const { logo, links, buttons } = {
     // ...Navbar5Defaults,
     ...props,
@@ -247,12 +250,11 @@ export const Navbar = (props: Navbar5Props,{params}:{params:{slug:string[]}}) =>
   const isMobile = useMediaQuery("(max-width: 991px)");
 
   const pathname = usePathname();
-  const [url, setUrl] = useState('');
+  const [url, setUrl] = useState("");
 
   useEffect(() => {
     setUrl(pathname);
   }, [pathname]);
-
 
   return (
     <nav className="relative flex w-full items-center justify-between border-b border-border-primary bg-background-primary lg:min-h-18 lg:px-[5%] z-50">
@@ -301,15 +303,19 @@ export const Navbar = (props: Navbar5Props,{params}:{params:{slug:string[]}}) =>
             {links.map((link, index) => (
               <div key={index} className="first:pt-4 lg:first:pt-0">
                 {link.megaMenu ? (
-                  <SubMenu
-                    megaMenu={link.megaMenu}
-                    title={link.title}
-                    isMobile={isMobile}
-                  />
+                  <Link href={link.url}>
+                    <SubMenu
+                      megaMenu={link.megaMenu}
+                      title={link.title}
+                      isMobile={isMobile}
+                    />
+                  </Link>
                 ) : (
                   <Link
                     href={link.url}
-                    className={`block py-3 text-md focus-visible:outline-none lg:px-4 lg:py-6 lg:text-base ${link.url==url?"text-blue-300":"text-black"}`}
+                    className={`block py-3 text-md focus-visible:outline-none lg:px-4 lg:py-6 lg:text-base ${
+                      link.url == url ? "text-blue-300" : "text-black"
+                    }`}
                   >
                     {link.title}
                   </Link>
@@ -323,7 +329,7 @@ export const Navbar = (props: Navbar5Props,{params}:{params:{slug:string[]}}) =>
                 </Button>
               ))}
               <HamMenu
-                megaMenu={ hamburger.megaMenu as MegaMenuLinkProps}
+                megaMenu={hamburger.megaMenu as MegaMenuLinkProps}
                 title={"More"}
                 isMobile={isMobile}
               />
@@ -633,7 +639,6 @@ function ListSection({ items, children }: ListSectionProps) {
     </div>
   );
 }
-
 
 const topLineVariants = {
   open: {

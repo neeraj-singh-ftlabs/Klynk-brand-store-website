@@ -16,9 +16,9 @@ export interface BlogPost {
 }
 
 const buttons:ButtonProps[] = [
-  { title: "Button", variant: "secondary" },
+  { title: "Learn More", variant: "secondary" },
   {
-    title: "Button",
+    title: "Sign Up",
     variant: "link",
     size: "link",
     iconRight: <RxChevronRight className="size-6" />,

@@ -118,6 +118,6 @@ export const Revoloutionizing = (props: Layout365Props) => {
       </div>
     </section>
   );
-};
+}; 
 
 Revoloutionizing.displayName = "Revoloutionizing";

@@ -33,7 +33,7 @@ export const Testimonial17 = (props: Testimonial17Props) => {
         <div className="mx-auto mb-12 w-full max-w-lg text-center md:mb-18 lg:mb-20">
           <h1 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">{heading}</h1>
           <p className="md:text-md">{description}</p>
-        </div>
+        </div> 
         <div className="grid grid-cols-1 items-stretch gap-8 md:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((testimonial, index) => (
             <div
@@ -73,47 +73,5 @@ export const Testimonial17 = (props: Testimonial17Props) => {
   );
 };
 
-// export const Testimonial17Defaults: Testimonial17Props = {
-//   heading: "Customer testimonials",
-//   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-//   testimonials: [
-//     {
-//       testimonial:
-//         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.",
-//       avatar: {
-//         src: "https://relume-assets.s3.amazonaws.com/placeholder-image.svg",
-//         alt: "Testimonial avatar 1",
-//       },
-//       name: "Name Surname",
-//       position: "Position",
-//       companyName: "Company name",
-//       numberOfStars: 5,
-//     },
-//     {
-//       testimonial:
-//         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.",
-//       avatar: {
-//         src: "https://relume-assets.s3.amazonaws.com/placeholder-image.svg",
-//         alt: "Testimonial avatar 2",
-//       },
-//       name: "Name Surname",
-//       position: "Position",
-//       companyName: "Company name",
-//       numberOfStars: 5,
-//     },
-//     {
-//       testimonial:
-//         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.",
-//       avatar: {
-//         src: "https://relume-assets.s3.amazonaws.com/placeholder-image.svg",
-//         alt: "Testimonial avatar 3",
-//       },
-//       name: "Name Surname",
-//       position: "Position",
-//       companyName: "Company name",
-//       numberOfStars: 5,
-//     },
-//   ],
-// };
 
 Testimonial17.displayName = "Testimonial17";
