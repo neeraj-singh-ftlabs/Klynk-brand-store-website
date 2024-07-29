@@ -287,6 +287,12 @@ const tabs = [
   { title: "Product", url: "/riku/product" },
   { title: "Cooking", url: "/riku/cooking" },
 ];
+const productPageDetails: any = {
+  heading: "Riku Cooker",
+  price: "55",
+  description:
+    " Discover the convenience and versatility of the Riku Cooker. With its automatic cooking capabilities, you can enjoy delicious meals without the stress and effort.",
+};
 const tagline = "Revolutionary";
 const heading = "Experience the Future of Cooking with Riku";
 const description =
@@ -380,7 +386,7 @@ function Product() {
   return (
     <>
       <NavigationTabs tabs={tabs} />
-      <ProductPage />
+      <ProductPage productPageDetails={productPageDetails} />
       <Trusted {...Logo1Defaults} />
       <TimelineSection timelineData={timelineData} />
       <CookingRiku

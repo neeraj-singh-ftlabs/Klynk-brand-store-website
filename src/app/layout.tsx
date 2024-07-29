@@ -150,7 +150,128 @@ const Navbar5Defaults: Navbar5Props = {
     },
     {
       title: "Semi",
-      url: "/semi/dashboard",
+      url: "/semi/overview",
+      megaMenu: {
+        categoryLinks: [
+          {
+            title: "Page group one",
+            links: [
+              {
+                url: "#",
+                image: {
+                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+                  alt: "Icon 1",
+                },
+                title: "Page One",
+                description: "Lorem ipsum dolor sit amet consectetur elit",
+              },
+              {
+                url: "#",
+                image: {
+                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+                  alt: "Icon 2",
+                },
+                title: "Page Two",
+                description: "Lorem ipsum dolor sit amet consectetur elit",
+              },
+              {
+                url: "#",
+                image: {
+                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+                  alt: "Icon 3",
+                },
+                title: "Page Three",
+                description: "Lorem ipsum dolor sit amet consectetur elit",
+              },
+              {
+                url: "#",
+                image: {
+                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+                  alt: "Icon 4",
+                },
+                title: "Page Four",
+                description: "Lorem ipsum dolor sit amet consectetur elit",
+              },
+            ],
+          },
+          {
+            title: "Page group two",
+            links: [
+              {
+                url: "#",
+                image: {
+                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+                  alt: "Icon 5",
+                },
+                title: "Page Five",
+                description: "Lorem ipsum dolor sit amet consectetur elit",
+              },
+              {
+                url: "#",
+                image: {
+                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+                  alt: "Icon 6",
+                },
+                title: "Page Six",
+                description: "Lorem ipsum dolor sit amet consectetur elit",
+              },
+              {
+                url: "#",
+                image: {
+                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+                  alt: "Icon 7",
+                },
+                title: "Page Seven",
+                description: "Lorem ipsum dolor sit amet consectetur elit",
+              },
+              {
+                url: "#",
+                image: {
+                  src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+                  alt: "Icon 8",
+                },
+                title: "Page Eight",
+                description: "Lorem ipsum dolor sit amet consectetur elit",
+              },
+            ],
+          },
+        ],
+        featuredSections: {
+          title: "Featured from Blog",
+          links: [
+            {
+              url: "#",
+              image: {
+                src: "https://relume-assets.s3.amazonaws.com/placeholder-image-landscape.svg",
+                alt: "Placeholder image 1",
+              },
+              title: "Article Title",
+              description: "Lorem ipsum dolor sit amet consectetur elit",
+              button: { title: "Read more", variant: "link", size: "link" },
+            },
+            {
+              url: "#",
+              image: {
+                src: "https://relume-assets.s3.amazonaws.com/placeholder-image-landscape.svg",
+                alt: "Placeholder image 2",
+              },
+              title: "Article Title",
+              description: "Lorem ipsum dolor sit amet consectetur elit",
+              button: { title: "Read more", variant: "link", size: "link" },
+            },
+          ],
+        },
+        button: {
+          title: "See all articles",
+          variant: "link",
+          size: "link",
+          iconRight: <RxChevronRight className="size-6" />,
+        },
+      },
+    },
+    {
+      title: "Klynk",
+      url: "/app",
       megaMenu: {
         categoryLinks: [
           {

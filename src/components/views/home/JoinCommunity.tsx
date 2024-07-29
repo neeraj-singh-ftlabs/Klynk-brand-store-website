@@ -9,7 +9,7 @@ interface ButtonProps {
   
   const Heading: React.FC<HeadingProps> = ({ children }) => {
     return (
-      <h1 className="self-stretch text-5xl font-bold text-black leading-[58px] max-md:mt-10 max-md:max-w-full max-md:text-4xl max-md:leading-[54px]">
+      <h1 className="text-wrap text-5xl font-bold text-black leading-[58px] max-md:mt-10 max-md:max-w-full max-md:text-4xl max-md:leading-[54px]">
         {children}
       </h1>
     );
@@ -61,7 +61,7 @@ export interface JoinCommunityProps {
         <section className="mt-8 max-md:mr-1 max-md:max-w-full px-[5%] py-12 md:py-16 lg:py-20">
             
           <div className="flex gap-5 max-md:flex-col container">
-            <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
+            <div className="flex flex-col w-5/12 max-md:ml-0 max-md:w-full">
               <Heading>
               {heading}
               </Heading>
