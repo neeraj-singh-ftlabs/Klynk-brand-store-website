@@ -21,6 +21,8 @@ import { Pricing27, Pricing27Props } from "@/components/views/semi/PricingPlan";
 import { BiCheck } from "react-icons/bi";
 import UpgradeExpSection from "@/components/common/rightImageDesc/RightImageDescSection";
 import { Faq3 as Faq, Faq3Props } from "@/components/common/faq1/Faq1";
+import NavigationTabs from "@/components/tabs/Tab";
+
 
 const thirdSection: Layout16Props = {
   tagline: "Revolutionize",
@@ -441,9 +443,17 @@ const Pricing27Defaults: Pricing27Props = {
   ],
 };
 
+const tabs = [
+  { title: 'Overview', url: '/semi/overview' },
+  { title: 'Technology', url: '/semi/technology' },
+  { title: 'Product', url: '/semi/product' },
+  // { title: "Cooking", url: "/semi/cooking" },
+];
+
 function Dashboard() {
   return (
     <>
+    <NavigationTabs  tabs={tabs} />
       <ExploreAndLearnMore
         Tagline="Simplify"
         title="Revolutionize Your Cooking"

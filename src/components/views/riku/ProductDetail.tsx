@@ -3,14 +3,14 @@ import React, { useState } from "react";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
-const ProductPage: React.FC = () => {
+const ProductPage: React.FC<any> = ({ productPageDetails }) => {
   return (
     <main className="flex flex-col px-16 pb-20 bg-white max-md:px-5">
       {/* <BreadcrumbNav /> */}
       <section className="pb-12 mt-6 max-md:max-w-full">
         <div className="flex gap-5 max-md:flex-col">
           <ProductImages />
-          <ProductDetails />
+          <ProductDetails productPageDetails={productPageDetails} />
         </div>
       </section>
     </main>
@@ -78,15 +78,15 @@ export const ProductImages: React.FC = () => {
   );
 };
 
-export const ProductDetails: React.FC = () => {
+export const ProductDetails: React.FC<any> = ({ productPageDetails }) => {
   return (
     <div className="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
       <div className="flex flex-col grow max-md:mt-10 max-md:max-w-full">
         <h1 className="self-start text-4xl font-bold leading-10 text-black">
-          Riku Cooker
+          {productPageDetails.heading}
         </h1>
         <div className="self-start mt-2 text-2xl font-bold leading-8 text-black">
-          $55
+          ${productPageDetails.price}
         </div>
         <div className="flex gap-2 self-start mt-6">
           <StarRating rating={3.5} />
@@ -95,9 +95,7 @@ export const ProductDetails: React.FC = () => {
           </div>
         </div>
         <p className="mt-6 text-base leading-6 text-black max-md:max-w-full">
-          Discover the convenience and versatility of the Riku Cooker. With its
-          automatic cooking capabilities, you can enjoy delicious meals without
-          the stress and effort.
+          {productPageDetails.description}
         </p>
         <Menu as="div" className="relative inline-block text-left mt-2 mb-5">
           <p>Variant</p>
