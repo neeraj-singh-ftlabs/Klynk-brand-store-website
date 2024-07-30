@@ -15,6 +15,7 @@ type QuestionsProps = {
 };
 
 type Props = {
+  padding:boolean;
   heading: string;
   description: string;
   footerHeading: string;
@@ -28,6 +29,7 @@ export type Faq4Props = React.ComponentPropsWithoutRef<"section"> &
 
 export const ProductFAQ = (props: Faq4Props) => {
   const {
+    padding=true,
     heading,
     description,
     questions,
@@ -39,8 +41,8 @@ export const ProductFAQ = (props: Faq4Props) => {
   } as Props;
   return (
     <section className="px-[5%] py-16 md:py-24 lg:py-28">
-      <div className="container mx-auto max-w-lg">
-        <div className="mb-12 text-center md:mb-18 lg:mb-20">
+      <div className={`container mx-auto ${padding?"max-w-lg":""}`}>
+        <div className={`mb-12 ${padding?"text-center":""} md:mb-18 lg:mb-20`}>
           <h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
             {heading}
           </h2>
@@ -70,7 +72,7 @@ export const ProductFAQ = (props: Faq4Props) => {
             </AccordionItem>
           ))}
         </Accordion>
-        <div className="mx-auto mt-12 max-w-md text-center md:mt-18 lg:mt-20">
+        <div className={`mx-auto mt-12 ${padding?"max-w-md text-center ":""}  md:mt-18 lg:mt-20`}>
           <h4 className="mb-3 text-2xl font-bold md:mb-4 md:text-3xl md:leading-[1.3] lg:text-4xl">
             {footerHeading}
           </h4>

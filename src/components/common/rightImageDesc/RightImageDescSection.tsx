@@ -37,7 +37,7 @@ const Button: React.FC<ButtonProps> = ({ variant = 'secondary', children }) => {
   const UpgradeExpSection: React.FC<UpgradeExpSectionProps> = ({ title, description, imageSrc, primaryButtonText, secondaryButtonText }) => {
     return (
       <section className="flex flex-col justify-center  bg-white max-md:px-5 px-[5%] py-12 md:py-16 lg:py-20">
-        <div className="mt-8 border border-black border-solid max-md:mr-1 max-md:max-w-full container">
+        <div className="mt-8   max-md:mr-1 max-md:max-w-full container">
           <div className="flex gap-5 max-md:flex-col">
             <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
               <div className="flex flex-col justify-center self-stretch p-12 my-auto max-md:px-5 max-md:mt-8 max-md:max-w-full">

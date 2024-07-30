@@ -9,9 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^2.1.2",
     "@heroicons/react": "^2.1.5",
     "@material-tailwind/react": "^2.1.9",
-    "@headlessui/react": "^2.1.2",
     "@relume_io/relume-tailwind": "^0.3.0",
     "@relume_io/relume-ui": "^0.3.0",
     "@types/axios": "^0.14.0",
@@ -34,6 +34,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "daisyui": "^4.12.10",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "postcss": "^8",

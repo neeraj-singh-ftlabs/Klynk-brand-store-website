@@ -279,7 +279,7 @@ const EffortlessMealData: Layout4Props = {
 
   return (
     <>
-      <SimplifyMeal {...Header64Defaults} />
+      <SimplifyMeal {...Header64Defaults} center={true} />
       <EffortlessMeal {...EffortlessMealData} />
       <EffortlessMeal {...SimplyGroceryData} />
       <DiscoverDelicious DiscoverData={DiscoverData} />
