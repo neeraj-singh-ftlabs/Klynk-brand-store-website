@@ -14,6 +14,7 @@ type QuestionsProps = {
 };
 
 type Props = {
+  padding:boolean;
   heading: string;
   description: string;
   footerHeading: string;

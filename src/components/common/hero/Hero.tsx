@@ -12,19 +12,21 @@ type Props = {
   description: string;
   buttons: ButtonProps[];
   image: ImageProps;
+  center?:boolean;
+  small?:boolean;
 };
 
 export type Header5Props = React.ComponentPropsWithoutRef<"section"> &
   Partial<Props>;
 
 export const Header5 = (props: Header5Props) => {
-  const { tagline, heading, description, buttons, image } = {
+  const { tagline, heading, description, buttons, image, center=false, small=false } = {
     ...props,
   } as Props;
   return (
-    <header className="relative px-[5%]">
+    <header className="relative px-[5%] ">
       <div className="container">
-        <div className="flex max-h-[60rem] min-h-svh items-center py-16 md:py-24 lg:py-28">
+        <div className={`flex max-h-[60rem] ${small?"":"min-h-svh "} py-16 md:py-24 lg:py-28 ${center?"text-center justify-center":""} items-center`}>
           <div className="max-w-md">
             {tagline && (
               <p className="mb-3 font-semibold md:mb-4 text-white">{tagline}</p>
@@ -35,7 +37,7 @@ export const Header5 = (props: Header5Props) => {
             <p className="text-base text-text-alternative md:text-md">
               {description}
             </p>
-            <div className="mt-6 flex gap-x-4 md:mt-8">
+            <div className={`mt-6 flex gap-x-4 md:mt-8 ${center?"text-center justify-center items-center":""}`}>
               {buttons?.map((button, index) => (
                 <Button key={index} {...button}>
                   {button.title}

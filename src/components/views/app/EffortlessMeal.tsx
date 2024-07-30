@@ -38,16 +38,18 @@ export const EffortlessMeal = (props: Layout4Props) => {
               {heading}
             </h2>
             <p className="mb-6 md:mb-8 md:text-md">{description}</p>
-            <div className="grid grid-cols-1 gap-6 py-2 md:grid-cols-2">
-              {subHeadings.map((subHeading, index) => (
-                <div key={index}>
-                  <h6 className="mb-3 text-md font-bold leading-[1.4] md:mb-4 md:text-xl">
-                    {subHeading.title}
-                  </h6>
-                  <p>{subHeading.description}</p>
-                </div>
-              ))}
-            </div>
+            {subHeadings && (
+              <div className="grid grid-cols-1 gap-6 py-2 md:grid-cols-2">
+                {subHeadings.map((subHeading, index) => (
+                  <div key={index}>
+                    <h6 className="mb-3 text-md font-bold leading-[1.4] md:mb-4 md:text-xl">
+                      {subHeading.title}
+                    </h6>
+                    <p>{subHeading.description}</p>
+                  </div>
+                ))}
+              </div>
+            )}
             <div className="mt-6 flex items-center gap-x-4 md:mt-8">
               {buttons?.map((button, index) => (
                 <Button key={index} {...button}>
@@ -62,7 +64,7 @@ export const EffortlessMeal = (props: Layout4Props) => {
               className="w-full object-cover"
               alt={image?.alt}
             />
-          </div>  
+          </div>
         </div>
       </div>
     </section>
