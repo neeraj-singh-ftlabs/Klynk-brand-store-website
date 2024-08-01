@@ -7,6 +7,7 @@ import {
   BiLogoLinkedinSquare,
   BiLogoYoutube,
 } from "react-icons/bi";
+import Link from "next/link";
 
 type ImageProps = {
   url?: string;
@@ -77,7 +78,10 @@ export const Footer = (props: Footer2Props) => {
               <img src={logo.src} alt={logo.alt} />
             </a>
             {columnLinks.map((column, index) => (
-              <div key={index} className="flex flex-col items-start justify-start">
+              <div
+                key={index}
+                className="flex flex-col items-start justify-start"
+              >
                 <h2 className="mb-3 font-semibold md:mb-4">{column.title}</h2>
                 <ul>
                   {column.links.map((link, linkIndex) => (
@@ -113,18 +117,22 @@ export const Footer = (props: Footer2Props) => {
             <div className="grid grid-flow-row grid-cols-[max-content] justify-center gap-x-0 gap-y-4 md:grid-flow-col md:justify-center md:gap-x-6 md:gap-y-0 lg:text-left">
               {footerLinks.map((link, index) => (
                 <p key={index} className="underline">
-                  <a href={link.url} className="focus-visible:outline-none">
+                  <Link href={link.url} className="focus-visible:outline-none">
                     {link.title}
-                  </a>
+                  </Link>
                 </p>
               ))}
             </div>
           </div>
           <div className="mb-8 flex items-center justify-center gap-3 lg:mb-0">
             {socialMediaLinks.map((link, index) => (
-              <a key={index} href={link.url} className="focus-visible:outline-none">
+              <Link
+                key={index}
+                href={link.url}
+                className="focus-visible:outline-none"
+              >
                 {link.icon}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

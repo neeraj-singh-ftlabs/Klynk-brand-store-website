@@ -1,3 +1,4 @@
+'use client'
 import { Header5Props, Header5 as Hero } from "@/components/common/hero/Hero";
 import {
   Layout17 as ImageWithDescription,
@@ -9,9 +10,9 @@ import { Testimonial17 as CustomerTestimonials, Testimonial17Props } from "@/com
 import BlogsSection, { BlogPost } from "@/components/views/blog/BlogsSection";
 import JoinCommunity from "@/components/views/home/JoinCommunity";
 import { RxChevronRight } from "react-icons/rx";
-
-
+import { useState } from "react";
 import React from "react";
+import SubscribeModal from "@/components/common/SubscribeModal";
 
 const firstSection: Layout16Props = {
   tagline: "Tagline",
@@ -269,21 +270,26 @@ const Testimonial17Defaults: Testimonial17Props = {
 };
 
 function Home() {
+
   return (
     <div>
-       <Hero {...heroProps}/>
-      <ConnectingDots {...Layout42Defaults}/>
+      <Hero {...heroProps} />
+     
+
+      <ConnectingDots {...Layout42Defaults} />
       <ImageWithDescription {...firstSection} />
       <ImageWithDescription {...secondSection} />
       <ImageWithDescription {...firstSection} />
       <ImageWithDescription {...fourthSection} />
-      <JoinCommunity  heading="Join the Klynk Community Today"
-      paragraph="Get exclusive content and updates from Klynk, the future of home cooking."
-      primaryButtonText="Join"
-      secondaryButtonText="Learn More" />
+      <JoinCommunity
+        heading="Join the Klynk Community Today"
+        paragraph="Get exclusive content and updates from Klynk, the future of home cooking."
+        primaryButtonText="Join"
+        secondaryButtonText="Learn More"
+      />
       <BlogsSection blogPosts={blogPosts} headerProps={headerProps} />
       <CustomerTestimonials {...Testimonial17Defaults} />
-      <AwardsAndNews  {...Logo4Defaults}/>
+      <AwardsAndNews {...Logo4Defaults} />
     </div>
   );
 }
