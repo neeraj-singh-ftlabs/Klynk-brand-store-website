@@ -140,7 +140,8 @@ export const Footer2Defaults: Footer2Props = {
     alt: "Logo image",
   },
   newsletterHeading: "Subscribe",
-  newsletterDescription: "Join our newsletter to stay up to date on features and releases.",
+  newsletterDescription:
+    "Join our newsletter to stay up to date on features and releases.",
   inputPlaceholder: "Enter your email",
   button: {
     title: "Subscribe",
@@ -195,8 +196,8 @@ export const Footer2Defaults: Footer2Props = {
   ],
   footerText: "© 2024 Relume. All rights reserved.",
   footerLinks: [
-    { title: "Privacy Policy", url: "#" },
-    { title: "Terms of Service", url: "#" },
+    { title: "Privacy Policy", url: "/privacy-policy" },
+    { title: "Terms & conditions", url: "/terms-conditions" },
     { title: "Cookies Settings", url: "#" },
   ],
 };

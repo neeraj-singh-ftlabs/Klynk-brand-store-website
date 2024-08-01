@@ -9,6 +9,7 @@ import { Navbar, Navbar5Props } from "@/components/common/navbar/Navbar";
 import { Footer } from "@/components/common/footer/Footer";
 import { RxChevronRight } from "react-icons/rx";
 
+
 const Navbar5Defaults: Navbar5Props = {
   logo: {
     url: "#",
@@ -392,7 +393,7 @@ const Navbar5Defaults: Navbar5Props = {
     {
       title: "Recipes",
       url: "/recipes",
-
+    
       megaMenu: {
         categoryLinks: [
           {
@@ -514,7 +515,7 @@ const Navbar5Defaults: Navbar5Props = {
     {
       title: "About Us",
       url: "/aboutus",
-
+     
       megaMenu: {
         categoryLinks: [
           {
@@ -634,6 +635,7 @@ const Navbar5Defaults: Navbar5Props = {
       },
     },
     {
+    
       title: "Contact Us",
       url: "/contact",
       megaMenu: {
@@ -767,6 +769,8 @@ const Navbar5Defaults: Navbar5Props = {
     // },
   ],
 };
+
+
 
 const inter = Inter({ subsets: ["latin"] });
 

@@ -5,7 +5,7 @@ const config: Config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-     "./node_modules/@relume_io/relume-ui/dist/**/*.{js,ts,jsx,tsx}"
+    "./node_modules/@relume_io/relume-ui/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -16,17 +16,32 @@ const config: Config = {
       },
       colors: {
         primary: {
-          light: '#4B5563',
-          dark: '#E5E7EB',
+          light: "#4B5563",
+          dark: "#E5E7EB",
         },
         secondary: {
-          light: '#1F2937',
-          dark: '#F3F4F6',
+          light: "#1F2937",
+          dark: "#F3F4F6",
         },
       },
     },
   },
   presets: [require("@relume_io/relume-tailwind")],
-  plugins: [ require("flowbite/plugin"),],
+  plugins: [
+    function ({ addUtilities }:any) {
+      const newUtilities = {
+        ".no-scrollbar::-webkit-scrollbar": {
+          display: "none",
+        },
+        ".no-scrollbar": {
+          "-ms-overflow-style": "none",
+          "scrollbar-width": "none",
+        },
+      };
+
+      addUtilities(newUtilities);
+    },
+    require("flowbite/plugin"),
+  ],
 };
 export default config;
