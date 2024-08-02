@@ -24,11 +24,15 @@ const config: Config = {
           dark: "#F3F4F6",
         },
       },
+      fontFamily: {
+        heading: ["Mukta Mahee", "Poppins", "sans-serif"],
+        paragraph: ["Roboto Slab",  "Mukta Mahee", "Poppins", "sans-serif"],
+      },
     },
   },
   presets: [require("@relume_io/relume-tailwind")],
   plugins: [
-    function ({ addUtilities }:any) {
+    function ({ addUtilities }: any) {
       const newUtilities = {
         ".no-scrollbar::-webkit-scrollbar": {
           display: "none",
@@ -44,4 +48,5 @@ const config: Config = {
     require("flowbite/plugin"),
   ],
 };
+
 export default config;

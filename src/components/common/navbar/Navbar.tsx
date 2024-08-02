@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import { Button, useMediaQuery } from "@relume_io/relume-ui";
 import type { ButtonProps } from "@relume_io/relume-ui";
@@ -9,6 +8,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { GrClose } from "react-icons/gr";
+import KlynkLogo from "../../../../public/assets/KlynkLogo&Colours/Klynk Logo Dark BG.png";
+import PrimaryButton from "../Button/PrimaryButton";
 interface ProductData {
   imageSrc: string;
   name: string;
@@ -25,45 +28,105 @@ const products: ProductData[] = [
       "https://cdn.builder.io/api/v1/image/assets/TEMP/5c9de794d1cca8caf688345f4fc17e51e9491b941cd390b0fb4676369fb374c5?apiKey=971b6410d97242e7b97afd5891e4e40f&",
     name: "Ola S1 Air",
   },
-  {
-    imageSrc:
-      "https://cdn.builder.io/api/v1/image/assets/TEMP/798fba74692defb10fd4111e029b732fd13b79c43fc154d74ff89c958cca69db?apiKey=971b6410d97242e7b97afd5891e4e40f&",
-    name: "Ola S1 X",
-  },
-  {
-    imageSrc:
-      "https://cdn.builder.io/api/v1/image/assets/TEMP/3fec0a4533618aabe7a1e4587c15bd1be886992881c93398a8c747fc666a1439?apiKey=971b6410d97242e7b97afd5891e4e40f&",
-    name: "Motorcycles",
-  },
+  // {
+  //   imageSrc:
+  //     "https://cdn.builder.io/api/v1/image/assets/TEMP/798fba74692defb10fd4111e029b732fd13b79c43fc154d74ff89c958cca69db?apiKey=971b6410d97242e7b97afd5891e4e40f&",
+  //   name: "Ola S1 X",
+  // },
+  // {
+  //   imageSrc:
+  //     "https://cdn.builder.io/api/v1/image/assets/TEMP/3fec0a4533618aabe7a1e4587c15bd1be886992881c93398a8c747fc666a1439?apiKey=971b6410d97242e7b97afd5891e4e40f&",
+  //   name: "Motorcycles",
+  // },
 ];
 
 const techItems = [
-  "Tech & Design",
-  "Software",
-  "Cell Tech",
-  "Manufacturing",
-  "Performance",
-  "Design",
+  {
+    title: " Images",
+    url: "#",
+  },
+  {
+    title: " Semi",
+    url: "/semi/overview",
+  },
+  {
+    title: "Riku",
+    url: "/riku/overview",
+  },
+  {
+    title: "App",
+    url: "/app",
+  },
+  {
+    title: "Recipes",
+    url: "/recipes",
+  },
+  {
+    title: "Cookware",
+    url: "#",
+  },
+  {
+    title: "Accessories",
+    url: "#",
+  },
 ];
 
 const ownershipItems = [
-  "Ownership",
-  "Electric Store",
-  "Hypercharger",
-  "Community",
-  "Referrals",
-  "Service",
-  "Battery Warranty",
-  "Break All Barriers",
+  {
+    title: "Technology",
+    url: "#",
+  },
+  {
+    title: "Automation",
+    url: "#",
+  },
+  {
+    title: "AI",
+    url: "#",
+  },
+  {
+    title: "Cooking",
+    url: "/cooking",
+  },
+  {
+    title: "Design",
+    url: "#",
+  },
 ];
 
 const companyItems = [
-  "Our Company",
-  "About Us",
-  "Investor Relations",
-  "News & Events",
-  "Blogs",
-  "Careers",
+  {
+    title: "Our Company",
+    url: "#",
+  },
+  {
+    title: "About Us",
+    url: "/aboutus",
+  },
+  {
+    title: "Blogs",
+    url: "/blogs",
+  },
+  {
+    title: "Support",
+    url: "#",
+  },
+  {
+    title: "Legal",
+    url: "#",
+  },
+  {
+    title: "Partners",
+    url: "#",
+  },
+  {
+    title: "Investors",
+    url: "#",
+  },
+  {
+    title: "Careers",
+    url: "#",
+  },
 ];
 
 // const accountItems = [
@@ -257,13 +320,20 @@ export const Navbar = (
   }, [pathname]);
 
   return (
-    <nav className="relative flex w-full items-center justify-between border-b border-border-primary bg-background-primary lg:min-h-18 lg:px-[5%] z-50">
+    <nav className="bg-[#000000] text-white relative flex w-full items-center justify-between border-b border-border-primary  lg:min-h-18 lg:px-[5%] z-50">
       <div className="size-full lg:flex lg:items-center lg:justify-between">
         <div className="lg:flex">
           <div className="flex min-h-16 items-center justify-between px-[5%] md:min-h-18 lg:min-h-full lg:px-0">
-            <a href={logo.url}>
-              <img src={logo.src} alt={logo.alt} />
-            </a>
+            <Link href={"/"}>
+              <Image
+                src={KlynkLogo}
+                alt="image"
+                width={150}
+                height={250}
+                className="ml-[-20px]"
+              />
+            </Link>
+
             <button
               className="-mr-2 flex size-12 flex-col items-center justify-center lg:hidden"
               onClick={() => setIsMobileMenuOpen((prev) => !prev)}
@@ -338,9 +408,10 @@ export const Navbar = (
         </div>
         <div className="hidden lg:flex lg:gap-4">
           {buttons.map((button, index) => (
-            <Button key={index} {...button}>
-              {button.title}
-            </Button>
+            // <Button key={index} {...button}>
+            //   {button.title}
+            // </Button>
+            <PrimaryButton key={index} text={button.title} />
           ))}
 
           <HamMenu
@@ -405,7 +476,7 @@ const SubMenu = ({
       >
         <div className="mx-auto flex size-full max-w-full items-center justify-between">
           <div className="w-full lg:flex">
-            <div className="grid flex-1 gap-x-8 gap-y-6 py-4 pr-8 md:grid-cols-2 md:px-0 md:py-8 lg:py-8 lg:pr-8">
+            <div className="text-black grid flex-1 gap-x-8 gap-y-6 py-4 pr-8 md:grid-cols-2 md:px-0 md:py-8 lg:py-8 lg:pr-8">
               {megaMenu.categoryLinks.map((group, index) => (
                 <div
                   key={index}
@@ -434,12 +505,12 @@ const SubMenu = ({
                 </div>
               ))}
             </div>
-            <div className="max-w-none relative flex flex-1 p-6 md:py-8 md:pl-8 md:pr-0 lg:max-w-md">
+            <div className="text-black max-w-none relative flex flex-1 p-6 md:py-8 md:pl-8 md:pr-0 lg:max-w-md">
               <div className="relative z-10 grid w-full auto-cols-fr auto-rows-max grid-cols-1 grid-rows-[max-content_max-content] gap-4">
                 <h4 className="text-sm font-semibold leading-[1.3]">
                   {megaMenu.featuredSections.title}
                 </h4>
-                <div className="grid auto-cols-fr grid-cols-1 grid-rows-[auto_auto] items-start gap-y-2 lg:grid-rows-[auto]">
+                <div className="text-black grid auto-cols-fr grid-cols-1 grid-rows-[auto_auto] items-start gap-y-2 lg:grid-rows-[auto]">
                   {megaMenu.featuredSections.links.map((link, index) => (
                     <Link
                       key={index}
@@ -503,9 +574,14 @@ const HamMenu = ({
   megaMenu: MegaMenuLinkProps;
 }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setIsDropdownOpen(false);
+  }, [pathname]);
   return (
     <div
-      className="z-50"
+      className="z-50 "
       // onMouseEnter={() => !isMobile && setIsDropdownOpen(true)}
       // onMouseLeave={() => !isMobile && setIsDropdownOpen(false)}
     >
@@ -514,7 +590,13 @@ const HamMenu = ({
         onClick={() => setIsDropdownOpen((prev) => !prev)}
       > */}
       <Button
-        className="flex w-full"
+        className="hidden  lg:flex w-full text-white bg-black border-none transition-all delay-200"
+        onClick={() => setIsDropdownOpen((prev) => !prev)}
+      >
+        {isDropdownOpen ? <GrClose size={25} /> : <GiHamburgerMenu size={25} />}
+      </Button>
+      <Button
+        className="flex  lg:hidden w-full  border-none transition-all delay-200"
         onClick={() => setIsDropdownOpen((prev) => !prev)}
       >
         {title}
@@ -570,14 +652,14 @@ const HamMenu = ({
                   />
                 ))}
               </div>
-              <Image
+              {/* <Image
                 src="https://cdn.builder.io/api/v1/image/assets/TEMP/30d24e3619902eb4b8651c3c0ee68eb458dffacd2f47ee2aa60740da2d64a12a?apiKey=971b6410d97242e7b97afd5891e4e40f&"
                 alt=""
                 width={1000} // Example width, you can adjust it to fit your layout
                 height={Math.round(1000 / 3.03)} // Maintain aspect ratio of 3.03
                 className="mt-12 w-full aspect-[3.03] max-md:mt-10"
                 loading="lazy"
-              />{" "}
+              />{" "} */}
             </div>
             {/* <div className="shrink-0 self-stretch w-px bg-gray-200 h-[494px]" /> */}
           </section>
@@ -622,18 +704,18 @@ interface ListSectionProps {
   children?: React.ReactNode;
 }
 
-function ListSection({ items, children }: ListSectionProps) {
+function ListSection({ items, children }: any) {
   return (
     <div className="flex flex-col mt-4">
       {children}
-      {items.map((item, index) => (
+      {items.map((item: any, index: number) => (
         <div
           key={index}
           className={`${index > 0 ? "mt-8" : ""} leading-[140%] ${
             index === 0 ? "text-gray-500" : ""
           }`}
         >
-          {item}
+          <Link href={item.url}> {item.title}</Link>
         </div>
       ))}
     </div>
