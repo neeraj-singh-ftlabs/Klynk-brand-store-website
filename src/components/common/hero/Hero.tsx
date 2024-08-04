@@ -1,5 +1,7 @@
 import { Button } from "@relume_io/relume-ui";
 import type { ButtonProps } from "@relume_io/relume-ui";
+import SecondaryButton from "../Button/SecondaryButton";
+import PrimaryButton from "../Button/PrimaryButton";
 
 type ImageProps = {
   src: string;
@@ -26,7 +28,13 @@ export const Header5 = (props: Header5Props) => {
   return (
     <header className="relative px-[5%] ">
       <div className="container">
-        <div className={`flex max-h-[60rem] ${small?"":"min-h-svh "} py-16 md:py-24 lg:py-28 ${center?"text-center justify-center":""} items-center`}>
+        <div
+          className={`flex max-h-[60rem] ${
+            small ? "" : "min-h-svh "
+          } py-16 md:py-24 lg:py-28 ${
+            center ? "text-center justify-center" : ""
+          } items-center`}
+        >
           <div className="max-w-md">
             {tagline && (
               <p className="mb-3 font-semibold md:mb-4 text-white">{tagline}</p>
@@ -37,12 +45,18 @@ export const Header5 = (props: Header5Props) => {
             <p className="text-base text-text-alternative md:text-md">
               {description}
             </p>
-            <div className={`mt-6 flex gap-x-4 md:mt-8 ${center?"text-center justify-center items-center":""}`}>
-              {buttons?.map((button, index) => (
-                <Button key={index} {...button}>
-                  {button.title}
-                </Button>
-              ))}
+            <div
+              className={`mt-6 flex gap-x-4 md:mt-8 ${
+                center ? "text-center justify-center items-center" : ""
+              }`}
+            >
+              {buttons?.map((button, index) =>
+                button.variant ? (
+                  <PrimaryButton key={index} text={button.title} />
+                ) : (
+                  <SecondaryButton key={index} text={button.title} />
+                )
+              )}
             </div>
           </div>
         </div>

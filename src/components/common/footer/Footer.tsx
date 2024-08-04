@@ -8,6 +8,9 @@ import {
   BiLogoYoutube,
 } from "react-icons/bi";
 import Link from "next/link";
+import KlynkLogo from "../../../../public/assets/KlynkLogo&Colours/Klynk Logo Dark BG.png";
+import Image from "next/image";
+import PrimaryButton from "../Button/PrimaryButton";
 
 type ImageProps = {
   url?: string;
@@ -67,16 +70,35 @@ export const Footer = (props: Footer2Props) => {
     ...props,
   } as Props;
   return (
-    <footer className="px-[5%] py-12 md:py-18 lg:py-20">
+    <footer className="px-[5%] py-12 md:py-18 lg:py-20 bg-[#000000] text-white">
       <div className="container">
-        <div className="grid grid-cols-1 items-start gap-x-[8vw] gap-y-12 pb-12 md:gap-y-16 md:pb-18 lg:grid-cols-[1fr_0.5fr] lg:gap-y-4 lg:pb-20">
-          <div className="grid grid-cols-1 items-start gap-x-8 gap-y-10 sm:grid-cols-3 sm:gap-x-6 sm:gap-y-12 md:gap-x-8 lg:grid-cols-4">
+        <div className="grid grid-cols-1 items-start gap-x-[8vw] gap-y-12 pb-12 md:gap-y-16 md:pb-18 lg:grid-cols-[0.5fr_1fr] lg:gap-y-4 lg:pb-20">
+          <div className="flex flex-col ">
             <a
               href={logo.url}
               className="sm:col-start-1 sm:col-end-4 sm:row-start-1 sm:row-end-2 lg:col-start-auto lg:col-end-auto lg:row-start-auto lg:row-end-auto"
             >
-              <img src={logo.src} alt={logo.alt} />
+              <Image
+                src={KlynkLogo}
+                alt="image"
+                width={200}
+                height={200}
+                className="ml-[-20px]"
+              />
             </a>
+            <h1 className="mb-3 font-semibold md:mb-4 mt-5">
+              {newsletterHeading}
+            </h1>
+            <p className="mb-3 text-sm md:mb-4">{newsletterDescription}</p>
+            <div className="max-w-md">
+              <div className="mb-3 grid grid-cols-1 gap-x-4 gap-y-3 sm:grid-cols-[1fr_max-content] md:gap-y-4">
+                <Input placeholder={inputPlaceholder} />
+                <PrimaryButton text={button.title} />
+              </div>
+              <div dangerouslySetInnerHTML={{ __html: termsAndConditions }} />
+            </div>
+          </div>
+          <div className="grid grid-cols-1 items-start gap-x-8 gap-y-10 sm:grid-cols-3 sm:gap-x-6 sm:gap-y-12 md:gap-x-8 lg:grid-cols-4">
             {columnLinks.map((column, index) => (
               <div
                 key={index}
@@ -86,28 +108,17 @@ export const Footer = (props: Footer2Props) => {
                 <ul>
                   {column.links.map((link, linkIndex) => (
                     <li key={linkIndex} className="py-2 text-sm">
-                      <a
+                      <Link
                         href={link.url}
                         className="flex items-center gap-3 focus-visible:outline-none"
                       >
                         {link.title}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
               </div>
             ))}
-          </div>
-          <div className="flex flex-col">
-            <h1 className="mb-3 font-semibold md:mb-4">{newsletterHeading}</h1>
-            <p className="mb-3 text-sm md:mb-4">{newsletterDescription}</p>
-            <div className="max-w-md">
-              <div className="mb-3 grid grid-cols-1 gap-x-4 gap-y-3 sm:grid-cols-[1fr_max-content] md:gap-y-4">
-                <Input placeholder={inputPlaceholder} />
-                <Button {...button}>{button.title}</Button>
-              </div>
-              <div dangerouslySetInnerHTML={{ __html: termsAndConditions }} />
-            </div>
           </div>
         </div>
         <div className="h-px w-full bg-black" />
@@ -129,9 +140,9 @@ export const Footer = (props: Footer2Props) => {
               <Link
                 key={index}
                 href={link.url}
-                className="focus-visible:outline-none"
+                className="focus-visible:outline-none "
               >
-                {link.icon}
+                <span className="w-[40px] h-[40px]">{link.icon}</span>
               </Link>
             ))}
           </div>
@@ -165,42 +176,53 @@ export const Footer2Defaults: Footer2Props = {
   `,
   columnLinks: [
     {
-      title: "Column One",
+      title: "Products",
       links: [
-        { title: "Link One", url: "#" },
-        { title: "Link Two", url: "#" },
-        { title: "Link Three", url: "#" },
-        { title: "Link Four", url: "#" },
-        { title: "Link Five", url: "#" },
+        { title: "Semi", url: "/semi/overview" },
+        { title: "Riku", url: "/riku/overview" },
+        { title: "App", url: "/app" },
+        { title: "Recipes", url: "/recipes" },
+        { title: "Cookware", url: "#" },
+        { title: "Accessories", url: "#" },
       ],
     },
     {
-      title: "Column Two",
+      title: "Technology",
       links: [
-        { title: "Link Six", url: "#" },
-        { title: "Link Seven", url: "#" },
-        { title: "Link Eight", url: "#" },
-        { title: "Link Nine", url: "#" },
-        { title: "Link Ten", url: "#" },
+        { title: "Automation", url: "#" },
+        { title: "AI", url: "#" },
+        { title: "Cooking", url: "/cooking" },
+        { title: "Design", url: "#" },
+        // { title: "Link Ten", url: "#" },
       ],
     },
     {
-      title: "Column Three",
+      title: "Resources",
       links: [
-        { title: "Link Eleven", url: "#" },
-        { title: "Link Twelve", url: "#" },
-        { title: "Link Thirteen", url: "#" },
-        { title: "Link Fourteen", url: "#" },
-        { title: "Link Fifteen", url: "#" },
+        { title: "Blog", url: "/blogs" },
+        { title: "Support", url: "#" },
+        { title: "Warranty", url: "#" },
+        { title: "Legal", url: "#" },
+        { title: "Knowledge Base", url: "#" },
+      ],
+    },
+    {
+      title: "Klynk",
+      links: [
+        { title: "About Us", url: "/aboutus" },
+        { title: "Careers", url: "#" },
+        { title: "Partners", url: "#" },
+        { title: "Investors", url: "#" },
+        { title: "Community", url: "#" },
       ],
     },
   ],
   socialMediaLinks: [
-    { url: "#", icon: <BiLogoFacebookCircle className="size-6" /> },
-    { url: "#", icon: <BiLogoInstagram className="size-6" /> },
-    { url: "#", icon: <FaXTwitter className="size-6 p-0.5" /> },
-    { url: "#", icon: <BiLogoLinkedinSquare className="size-6" /> },
-    { url: "#", icon: <BiLogoYoutube className="size-6" /> },
+    { url: "#", icon: <BiLogoFacebookCircle className="size-8" /> },
+    { url: "#", icon: <BiLogoInstagram className="size-8" /> },
+    { url: "#", icon: <FaXTwitter className="size-8 p-0.5" /> },
+    // { url: "#", icon: <BiLogoLinkedinSquare className="size-8" /> },
+    { url: "#", icon: <BiLogoYoutube className="size-8" /> },
   ],
   footerText: "© 2024 Relume. All rights reserved.",
   footerLinks: [

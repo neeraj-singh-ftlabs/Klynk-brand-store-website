@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2000 1000">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient-4);
+        fill-rule: evenodd;
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-4 {
+        fill: url(#linear-gradient-3);
+      }
+
+      .cls-5 {
+        fill: url(#linear-gradient-5);
+      }
+
+      .cls-6 {
+        fill: url(#linear-gradient-6);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="1797.95" y1="-1427.09" x2="1913.95" y2="-1427.09" gradientTransform="translate(0 2008.89)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ef4923"/>
+      <stop offset="1" stop-color="#f47523"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="86.05" y1="-1427.09" x2="202.05" y2="-1427.09" gradientTransform="translate(0 2008.89)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ef4923"/>
+      <stop offset="1" stop-color="#f47523"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="1060.45" y1="-1724.09" x2="1176.45" y2="-1724.09" gradientTransform="translate(0 2008.89)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ef4923"/>
+      <stop offset="1" stop-color="#f47523"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-4" x1="246.15" y1="-1508.89" x2="1779.45" y2="-1508.89" gradientTransform="translate(0 2008.89)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000"/>
+      <stop offset="1" stop-color="#231f20"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-5" x1="1814.75" y1="-788.6" x2="1879.75" y2="-788.6" gradientTransform="translate(0 1048)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000"/>
+      <stop offset="1" stop-color="#231f20"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-6" x1="1835.85" y1="-788.7" x2="1862.05" y2="-788.7" gradientTransform="translate(0 1048)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000"/>
+      <stop offset="1" stop-color="#231f20"/>
+    </linearGradient>
+  </defs>
+  <path class="cls-1" d="M1855.95,639.7c32,0,58-25.9,58-57.9s-25.9-57.9-58-57.9-58,25.9-58,57.9,26,57.9,58,57.9Z"/>
+  <path class="cls-3" d="M144.05,639.7c32,0,58-25.9,58-57.9s-26-57.9-58-57.9-58,25.9-58,57.9,26,57.9,58,57.9Z"/>
+  <path class="cls-4" d="M1118.45,342.7c32,0,58-25.9,58-57.9s-25.9-57.9-58-57.9-58,25.9-58,57.9,26,57.9,58,57.9Z"/>
+  <path class="cls-2" d="M573.35,227h93.8v412.7h-93.8V227ZM246.15,227v412.7h93.8v-155l102.7,155h112.5l-102.7-155,102.7-155h-112.5l-25.8,39c-22.9,34.6-76.8,18.4-76.8-23.1v-118.6h-93.9ZM1470.45,226.9v412.7h93.8v-155l102.7,155h112.5l-102.7-155,102.7-155h-112.5l-25.8,39c-22.9,34.6-76.8,18.4-76.8-23.1v-118.6h-93.9ZM950.65,624.9v148.1s0,.1.1.1h93.6s.1,0,.1-.1v-441.7s0-.1-.1-.1h-93.6s-.1,0-.1.1v150c0,38.2-32.5,69.1-72.2,68.1-38.4-1-68.5-32.4-68.5-69.6v-148.5q0-.1-.1-.1h-93.6s-.1,0-.1.1v147.8c0,87.3,71.8,160,162,161.1,26,.3,50.6-5.2,72.5-15.3h0ZM1093.55,491.1v150.2h93.8v-150.2c0-37.6,31.5-68.1,70.3-68.1s70.4,30.5,70.4,68.1v150.2h93.8v-150.2c0-87.7-73.5-158.9-164.2-158.9s-164.1,71.2-164.1,158.9Z"/>
+  <g>
+    <path class="cls-5" d="M1870.25,236.4c-6.1-6.1-14.3-9.5-23-9.5s-16.8,3.4-23,9.5c-6.1,6.1-9.5,14.3-9.5,23s3.4,16.8,9.5,23,14.3,9.5,23,9.5,16.8-3.4,23-9.5c6.1-6.1,9.5-14.3,9.5-23s-3.4-16.8-9.5-23ZM1847.25,288.8c-16.2,0-29.4-13.2-29.4-29.4s13.2-29.4,29.4-29.4,29.4,13.2,29.4,29.4-13.2,29.4-29.4,29.4Z"/>
+    <path class="cls-6" d="M1854.55,260.9l-1.2-.8,1.3-.6c4.1-1.8,6.1-4.6,6.1-8.6,0-3-1.3-5.3-3.9-7.1-2.7-1.8-6.4-2.7-11-2.7-3,0-6.4.3-10.1.9v35.5h3.8v-16.3h7.5c5.7,0,9.5,5.5,11.1,16.3h3.8c-.9-5.1-1.8-8.9-2.9-11.2-1-2.4-2.5-4.2-4.5-5.4ZM1846.95,258.7h-7.2v-14.3l.7-.1c1.5-.2,3.4-.2,5.6-.2,7.4,0,11.2,2.4,11.2,7.3-.1,4.8-3.5,7.3-10.3,7.3Z"/>
+  </g>
+</svg>

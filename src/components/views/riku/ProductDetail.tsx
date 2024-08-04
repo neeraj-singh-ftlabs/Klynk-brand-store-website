@@ -156,7 +156,7 @@ export const ProductDetails: React.FC<any> = ({ productPageDetails }) => {
           options={["Option one", "Option Two", "Option Three"]}
         />
         <QuantitySelector />
-        <button className="px-6 py-3 mt-8 text-base leading-6 text-white bg-black border border-black border-solid max-md:px-5 max-md:max-w-full">
+        <button className="px-6 py-3 mt-8 text-base leading-6 text-white bg-primary-light border border-black border-solid max-md:px-5 max-md:max-w-full">
           Add To Cart
         </button>
         <button className="px-6 py-3 mt-4 text-base leading-6 text-black border border-black border-solid max-md:px-5 max-md:max-w-full">

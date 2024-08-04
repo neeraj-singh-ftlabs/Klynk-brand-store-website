@@ -8,6 +8,11 @@ import {
 } from "@/components/common/ImageWithDescription/ImageWithDescription";
 import { KlynkMakes, Layout245Props } from '@/components/views/cooking/KlynkMakes';
 import { RxChevronRight } from "react-icons/rx";
+import {
+  Testimonial17 as CustomerTestimonials,
+  Testimonial17Props,
+} from "@/components/views/home/CustomerTestimonials";
+import UpgradeExpSection from '@/components/common/rightImageDesc/RightImageDescSection';
 
 function Cooking() {
   const ConvienceProps = {
@@ -91,21 +96,63 @@ const thirdSection: Layout16Props = {
           src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
           alt: "Relume logo 3",
         },
-        heading: "Medium length section heading goes here",
+        heading: "Connect with a Community of Food Enthusiasts",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.",
+          "Join our community of chefs and food influencers to share recipes and inspiration.",
       },
     ],
     buttons: [
-      { title: "Button", variant: "secondary" },
+      { title: "Learn More", variant: "secondary" },
       {
-        title: "Button",
+        title: "Sign Up",
         variant: "link",
         size: "link",
         iconRight: <RxChevronRight className="size-6" />,
       },
     ],
   };
+   const Testimonial17Defaults: Testimonial17Props = {
+     heading: "Customer testimonials",
+     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+     testimonials: [
+       {
+         testimonial:
+           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.",
+         avatar: {
+           src: "https://relume-assets.s3.amazonaws.com/placeholder-image.svg",
+           alt: "Testimonial avatar 1",
+         },
+         name: "Name Surname",
+         position: "Position",
+         companyName: "Company name",
+         numberOfStars: 5,
+       },
+       {
+         testimonial:
+           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.",
+         avatar: {
+           src: "https://relume-assets.s3.amazonaws.com/placeholder-image.svg",
+           alt: "Testimonial avatar 2",
+         },
+         name: "Name Surname",
+         position: "Position",
+         companyName: "Company name",
+         numberOfStars: 5,
+       },
+       {
+         testimonial:
+           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.",
+         avatar: {
+           src: "https://relume-assets.s3.amazonaws.com/placeholder-image.svg",
+           alt: "Testimonial avatar 3",
+         },
+         name: "Name Surname",
+         position: "Position",
+         companyName: "Company name",
+         numberOfStars: 5,
+       },
+     ],
+   };
   return (
     <>
       <CookWithKlynk />
@@ -113,8 +160,16 @@ const thirdSection: Layout16Props = {
       <EffortlessComp />
       <ImageWithDescription {...thirdSection} />
       <KlynkMakes {...Layout245Defaults} />
+      <CustomerTestimonials {...Testimonial17Defaults} />
+      <UpgradeExpSection
+        title="Discover the Future of Cooking"
+        description="Join our community for personalized content and updates on Klynk products."
+        imageSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/1f23a3427c8904e04004d18a7bac5335c7d9718101b21c60eccca03b5419b2fb?apiKey=971b6410d97242e7b97afd5891e4e40f&&apiKey=971b6410d97242e7b97afd5891e4e40f"
+        primaryButtonText="Explore"
+        secondaryButtonText="Sign Up"
+      />
     </>
   );
 }
 
-export default Cooking
+export default Cooking 
