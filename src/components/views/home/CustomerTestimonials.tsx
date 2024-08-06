@@ -1,5 +1,9 @@
+'use client'
+import { useState } from "react";
 import { BiSolidStar } from "react-icons/bi";
-
+import { BiPlayCircle } from "react-icons/bi";
+import { RiDoubleQuotesL } from "react-icons/ri";
+import { ImPause } from "react-icons/im";
 type ImageProps = {
   src: string;
   alt?: string;
@@ -27,41 +31,81 @@ export const Testimonial17 = (props: Testimonial17Props) => {
     // ...Testimonial17Defaults,
     ...props,
   } as Props;
+   const [playIndex,setPlayIndex] = useState<any>({index:null,status:false})
   return (
     <section className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
-        <div className="mx-auto mb-12 w-full max-w-lg text-center md:mb-18 lg:mb-20">
-          <h1 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">{heading}</h1>
-          <p className="md:text-md">{description}</p>
-        </div> 
-        <div className="grid grid-cols-1 items-stretch gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {testimonials.map((testimonial, index) => (
+        <div className="mx-auto mb-12 w-full max-w-lg text-center md:mb-18 lg:mb-10">
+          <h1 className="mb-5 text-5xl font-black md:mb-6 md:text-7xl lg:text-8xl">
+            {heading}
+          </h1>
+          <p className="md:text-md lg:text-nowrap ">{description}</p>
+        </div>
+        <div className="grid grid-cols-1 h-full  items-stretch gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {testimonials.map((testimonial: any, index: number) => (
             <div
               key={index}
-              className="flex w-full flex-col items-start justify-between border border-border-primary p-6 md:p-8"
+              className="relative  flex w-full shadow-xxlarge shadow-gray-300 rounded-lg flex-col items-start justify-between border-none pb-6 pr-4 pl-4 pt-0"
             >
-              <div className="mb-5 md:mb-6">
-                <div className="mb-6 flex">
-                  {Array(testimonial.numberOfStars)
-                    .fill(null)
-                    .map((_, starIndex) => (
-                      <BiSolidStar key={starIndex} className="mr-1 size-6" />
-                    ))}
-                </div>
-                <blockquote className={`before:content-['"'] after:content-['"'] md:text-md`}>
-                  {testimonial.testimonial}
-                </blockquote>
+              <div className="relative mb-5 md:mb-6 ">
+                {playIndex.index == index && playIndex.status ? (
+                  <iframe
+                    src="https://www.youtube.com/embed/8DKLYsikxTs?autoplay=1&controls=1"
+                    className="z-50 w-full lg:w-[380px] h-[400px] object-cover rounded-lg"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                ) : (
+                  <iframe
+                    src="https://www.youtube.com/embed/8DKLYsikxTs"
+                    className="z-50 w-full lg:w-[380px] h-[400px] object-cover rounded-lg"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  ></iframe>
+                )}
+                {playIndex.index !== index && (
+                  <div className="flex flex-col absolute inset-0 top-10  items-center justify-center bg-opacity-50 rounded-lg">
+                    <div className="flex-col mt-44">
+                      <p className="">
+                        <RiDoubleQuotesL className="text-[#EF4823] text-4xl " />
+                      </p>
+                    </div>
+                    <div className="flex-col w-[50%] text-wrap text-center mb-10">
+                      <p className="text-white text-xl">
+                        I never thought cooking be this easy!
+                      </p>
+                    </div>
+                  </div>
+                )}
               </div>
-              <div className="flex w-full flex-col items-start text-left md:w-fit md:flex-row md:items-center">
-                <img
-                  src={testimonial.avatar.src}
-                  alt={testimonial.avatar.alt}
-                  className="mb-4 mr-0 size-12 min-h-12 min-w-12 rounded-full object-cover md:mb-0 md:mr-4"
-                />
-                <div>
-                  <p className="font-semibold">{testimonial.name}</p>
-                  <p>
-                    {testimonial.position}, {testimonial.companyName}
+              <div className="flex z-50  ml-[38%] mt-[-55px]  items-center justify-center rounded-full bg-orange-500 w-18 h-18">
+                {playIndex.index == index && playIndex.status ? (
+                  <ImPause
+                    className="text-white text-4xl cursor-pointer"
+                    onClick={() =>
+                      setPlayIndex({
+                        index: playIndex.index === null ? index : null,
+                        status:
+                          playIndex.index === index ? !playIndex.status : true,
+                      })
+                    }
+                  />
+                ) : (
+                  <BiPlayCircle
+                    className="text-white text-4xl cursor-pointer"
+                    onClick={() =>
+                      setPlayIndex({
+                        index: playIndex.index === null ? index : null,
+                        status:
+                          playIndex.index === index ? !playIndex.status : true,
+                      })
+                    }
+                  />
+                )}
+              </div>
+              <div className="flex w-full mt-6 mb-5 flex-col  text-left md:w-fit md:flex-row md:items-center">
+                <div className="items-center  justify-center text-center">
+                  <p className="font-semibold text-center md:ml-24 lg:ml-32">
+                    {testimonial.name}
                   </p>
                 </div>
               </div>

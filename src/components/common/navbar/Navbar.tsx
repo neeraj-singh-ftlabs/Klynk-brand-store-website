@@ -72,6 +72,7 @@ const techItems = [
 ];
 
 const ownershipItems = [
+ 
   {
     title: "Technology",
     url: "#",
@@ -92,6 +93,7 @@ const ownershipItems = [
     title: "Design",
     url: "#",
   },
+ 
 ];
 
 const companyItems = [
@@ -324,7 +326,7 @@ export const Navbar = (
       <div className="size-full lg:flex lg:items-center lg:justify-between">
         <div className="lg:flex">
           <div className="flex min-h-16 items-center justify-between px-[5%] md:min-h-18 lg:min-h-full lg:px-0">
-            <Link href={"/"}>
+            <Link href='/'>
               <Image
                 src={KlynkLogo}
                 alt="image"
@@ -333,23 +335,22 @@ export const Navbar = (
                 className="ml-[-20px]"
               />
             </Link>
-
             <button
               className="-mr-2 flex size-12 flex-col items-center justify-center lg:hidden"
               onClick={() => setIsMobileMenuOpen((prev) => !prev)}
             >
               <motion.span
-                className="my-[3px] h-0.5 w-6 bg-black"
+                className="my-[3px] h-0.5 w-6 bg-white"
                 animate={isMobileMenuOpen ? ["open", "rotatePhase"] : "closed"}
                 variants={topLineVariants}
               />
               <motion.span
-                className="my-[3px] h-0.5 w-6 bg-black"
+                className="my-[3px] h-0.5 w-6 bg-white"
                 animate={isMobileMenuOpen ? "open" : "closed"}
                 variants={middleLineVariants}
               />
               <motion.span
-                className="my-[3px] h-0.5 w-6 bg-black"
+                className="my-[3px] h-0.5 w-6 bg-white"
                 animate={isMobileMenuOpen ? ["open", "rotatePhase"] : "closed"}
                 variants={bottomLineVariants}
               />
@@ -574,11 +575,11 @@ const HamMenu = ({
   megaMenu: MegaMenuLinkProps;
 }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const pathname = usePathname();
+ const pathname = usePathname();
 
-  useEffect(() => {
-    setIsDropdownOpen(false);
-  }, [pathname]);
+ useEffect(() => {
+   setIsDropdownOpen(false);
+ }, [pathname]);
   return (
     <div
       className="z-50 "
@@ -590,13 +591,14 @@ const HamMenu = ({
         onClick={() => setIsDropdownOpen((prev) => !prev)}
       > */}
       <Button
-        className="hidden  lg:flex w-full text-white bg-black border-none transition-all delay-200"
+        className="hidden  lg:flex w-full text-white bg-black border-none transition-all "
         onClick={() => setIsDropdownOpen((prev) => !prev)}
       >
         {isDropdownOpen ? <GrClose size={25} /> : <GiHamburgerMenu size={25} />}
       </Button>
+    
       <Button
-        className="flex  lg:hidden w-full  border-none transition-all delay-200"
+        className="flex  lg:hidden w-full text-white bg-black  border-none transition-all "
         onClick={() => setIsDropdownOpen((prev) => !prev)}
       >
         {title}

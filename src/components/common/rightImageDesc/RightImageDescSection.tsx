@@ -1,4 +1,5 @@
 import React from 'react';
+import PrimaryButton from '../Button/PrimaryButton';
 
 interface UpgradeExpSectionProps {
   title: string;
@@ -6,6 +7,7 @@ interface UpgradeExpSectionProps {
   imageSrc: string;
   primaryButtonText?: string;
   secondaryButtonText?: string;
+  status?: boolean;
 }
 
 
@@ -34,28 +36,78 @@ const Button: React.FC<ButtonProps> = ({ variant = 'secondary', children }) => {
 
 
 
-  const UpgradeExpSection: React.FC<UpgradeExpSectionProps> = ({ title, description, imageSrc, primaryButtonText, secondaryButtonText }) => {
+  const UpgradeExpSection: React.FC<UpgradeExpSectionProps> = ({
+    title,
+    description,
+    imageSrc,
+    primaryButtonText,
+    secondaryButtonText,
+    status = false,
+  }) => {
     return (
-      <section className="flex flex-col justify-center  bg-white max-md:px-5 px-[5%] py-12 md:py-16 lg:py-20">
-        <div className="mt-8   max-md:mr-1 max-md:max-w-full container">
+      <section
+        className={`flex flex-col justify-center  bg-white max-md:px-5 px-[5%] py-12 md:py-16 lg:py-20 `}
+      >
+        <div
+          className={`lg:mt-8   max-md:mr-1 max-md:max-w-full container ${
+            status && "shadow-medium rounded-lg shadow-gray-300"
+          } `}
+        >
           <div className="flex gap-5 max-md:flex-col">
+            {status && (
+              <div className="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
+                <img
+                  loading="lazy"
+                  src={imageSrc}
+                  alt=""
+                  className="grow w-full aspect-[1.49] max-md:max-w-full  md:ml-[-20px] rounded-l-lg"
+                />
+              </div>
+            )}
             <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
               <div className="flex flex-col justify-center self-stretch p-12 my-auto max-md:px-5 max-md:mt-8 max-md:max-w-full">
-                <h2 className="text-5xl font-bold text-black leading-[58px] max-md:max-w-full max-md:text-4xl max-md:leading-[54px]">
+                <h2 className="text-6xl font-extrabold lg:w-[280px] text-black leading-[58px] max-md:max-w-full max-md:text-4xl max-md:leading-[54px]">
                   {title}
+                  <br />
+                  <h2 className="text-[#EF4823] text-6xl font-extrabold">
+                    Community
+                  </h2>
                 </h2>
                 <p className="mt-6 text-lg leading-7 text-black max-md:max-w-full">
                   {description}
                 </p>
+                {status && (
+                  <div className="flex flex-col lg:flex-row  gap-5 mt-8">
+                    <input
+                      type="text"
+                      className="border-none shadow-medium lg:px-8 rounded-lg shadow-gray-300 p-2 pl-5"
+                      placeholder="example@xyz.com"
+                    />
+                    <input
+                      type="text"
+                      className="border-none shadow-medium rounded-lg lg:px-8 shadow-gray-300 p-2 pl-5"
+                      placeholder="mobile number"
+                    />
+                  </div>
+                )}
                 <div className="flex gap-4 items-start self-start pt-4 mt-6 text-base leading-6 whitespace-nowrap">
-                  <Button variant="primary">{primaryButtonText}</Button>
-                  <Button variant="secondary">{secondaryButtonText}</Button>
+                  <PrimaryButton text={primaryButtonText} />
+                  {!status && (
+                    <Button variant="secondary">{secondaryButtonText}</Button>
+                  )}
                 </div>
               </div>
             </div>
-            <div className="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
-              <img loading="lazy" src={imageSrc} alt="" className="grow w-full aspect-[1.49] max-md:max-w-full" />
-            </div>
+            {!status && (
+              <div className="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
+                <img
+                  loading="lazy"
+                  src={imageSrc}
+                  alt=""
+                  className="grow w-full aspect-[1.49] max-md:max-w-full"
+                />
+              </div>
+            )}
           </div>
         </div>
       </section>

@@ -41,9 +41,9 @@ export default function Template({ children }: { children: React.ReactNode }) {
 
   return (
     <div>
-      {modalVisible && (
+      {/* {modalVisible && (
         <SubscribeModal show={modalVisible} onClose={handleClose} />
-      )}
+      )} */}
       {children}
     </div>
   );

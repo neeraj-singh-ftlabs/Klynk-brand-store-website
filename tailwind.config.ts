@@ -25,8 +25,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        heading: ["Mukta Mahee", "Poppins", "sans-serif"],
-        paragraph: ["Roboto Slab",  "Mukta Mahee", "Poppins", "sans-serif"],
+        heading: ["Roboto Slab"],
+        paragraph: ["Mukta Mahee"],
       },
     },
   },
