@@ -85,7 +85,7 @@ export const CravingChef = (props: Layout422Props) => {
                       className="size-full object-cover mt-18 mb-10"
                     />
                   </div>
-                  <div className="mt-6 md:mt-8 flex flex-row gap-5 md:ml-[20%]">
+                  <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-5 md:ml-[20%]">
                     <SecondaryButton text="View in 360°" />
                     <PrimaryButton text="Explore" />
                   </div>

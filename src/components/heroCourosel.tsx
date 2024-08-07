@@ -67,12 +67,12 @@ export const HeroCourosel = (props: Header102Props) => {
 
   return (
     <section className="grid grid-cols-1  items-center gap-y-16 overflow-hidden pt-0 sm:overflow-auto    lg:gap-y-0 lg:pt-0">
-      <div className="relative  clear-both h-[300px] max-h-[60rem] text-white min-h-screen w-full   text-center">
+      <div className="relative   clear-both h-[700px] max-h-[60rem] text-white min-h-screen w-full   text-center">
         <Carousel
           opts={options}
           plugins={plugins}
           setApi={setApi}
-          className="relative left-0 h-[90%]  right-0 z-10 block overflow-hidden whitespace-nowrap pl-4 bg-gradient-to-r from-[#000000] to-[#292929]"
+          className="relative left-0 h-full lg:h-[90%]  right-0 z-10 block overflow-hidden whitespace-nowrap pl-4 bg-gradient-to-r from-[#000000] to-[#292929]"
         >
           <CarouselContent>
             {images?.map((image, index) => (
@@ -80,12 +80,12 @@ export const HeroCourosel = (props: Header102Props) => {
                 <div className="relative inline-block  size-full whitespace-normal text-left align-top">
                   <div className=" ">
                     <div className="flex flex-col-reverse lg:flex-row  ">
-                      <div className="flex-col lg:flex-row    mx-[5%] mt-10 lg:mt-48 max-w-md justify-self-start lg:ml-[5vw] lg:mr-20 lg:justify-self-end">
-                        <h1 className="mb-5 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl">
+                      <div className="flex-col lg:flex-row  mx-[10%] mt-5 sm:mt-10 lg:mt-48 max-w-md justify-self-start lg:ml-[5vw] lg:mr-20 lg:justify-self-end">
+                        <h1 className="mb-5  xs:text-2xl  sm:text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl">
                           {image.heading}
                         </h1>
                         <p className="md:text-md">{image.description}</p>
-                        <div className="mt-6 flex gap-x-4 md:mt-8">
+                        <div className="mt-6 flex flex-col sm:flex-row gap-y-2 gap-x-4 md:mt-8 ">
                           {buttons?.map((button, index) =>
                             button.variant ? (
                               <span key={index}>
@@ -112,8 +112,8 @@ export const HeroCourosel = (props: Header102Props) => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <div className="flex items-center justify-between pl-4">
-            <div className="absolute gap-1 bottom-[52px]  left-8 right-auto top-auto flex w-full items-start justify-start">
+          <div className="flex items-center justify-between pl-4 ">
+            <div className="absolute gap-1 bottom-[52px] md:mx-10 left-8 right-auto top-auto flex w-full items-start justify-start">
               {images?.map((_, index) => (
                 <button
                   key={index}

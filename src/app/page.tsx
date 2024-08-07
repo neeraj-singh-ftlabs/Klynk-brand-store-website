@@ -18,7 +18,7 @@ import { CreateAndShare, Layout396Props } from "@/components/views/home/CreateAn
 import { Header102Props, HeroCourosel } from "@/components/heroCourosel";
 import { CravingChef, Layout422Props } from "@/components/views/home/CravingChef";
 import ChefHatIcon from '../../public/assets/Images/Icons/ChefHat.svg'
-import Logo2 from "../../public/assets/Images/Icons/SmokeBordered.svg";
+import SmokeBorderedIcon from "../../public/assets/Images/Icons/SmokeBordered.svg";
 import MobileWireless from "../../public/assets/Images/Icons/MobileWireless.svg";
 import SecureIcon from "../../public/assets/Images/Icons/Secure.svg";
 import WeighingMachineIcon from "../../public/assets/Images/Icons/WeighingMachine.svg";
@@ -42,28 +42,28 @@ const firstSection: Layout16Props = {
     },
     {
       icon: {
-        src: Logo2,
+        src: SmokeBorderedIcon,
         alt: "Relume logo 2",
       },
       paragraph: "Automated Heating",
     },
     {
       icon: {
-        src: WeighingMachineIcon,
+        src: MobileWireless,
         alt: "Relume logo 3",
       },
       paragraph: "Smart Application Control",
     },
     {
       icon: {
-        src: MobileWireless,
+        src: SecureIcon,
         alt: "Relume logo 2",
       },
       paragraph: "Advanced Safety Features",
     },
     {
       icon: {
-        src: SecureIcon,
+        src: WeighingMachineIcon,
         alt: "Relume logo 3",
       },
       paragraph: "Built-in Weighing Scale",
@@ -108,7 +108,7 @@ const secondSection: Layout16Props = {
     },
     {
       icon: {
-        src: Logo2,
+        src: SmokeBorderedIcon,
         alt: "Relume logo 3",
       },
       paragraph: "8 Ingredient Pods",
@@ -142,18 +142,77 @@ const secondSection: Layout16Props = {
   },
   reverse: true,
 };
-
-const fourthSection: Layout16Props = {
-  heading: "Medium length section heading goes here",
+const thirdSection: Layout16Props = {
+  tagline: "Meet Riku",
+  heading: "Your Ultimate Kitchen Companion",
   description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+    "Step into the future of home cooking with Riku. Simplify meal prep and enjoy effortless automation. Choose recipes, add ingredients, and let Riku handle the rest, reducing kitchen time and effort.",
+  features: [
+    {
+      icon: {
+        src: ThermometerIcon,
+        alt: "Relume logo 1",
+      },
 
+      paragraph: "Guided Cooking",
+
+      title: "grid view title",
+    },
+    {
+      icon: {
+        src: ChefHatIcon,
+        alt: "Relume logo 2",
+      },
+      paragraph: "Smart Recipe Discovery",
+    },
+    {
+      icon: {
+        src: SmokeBorderedIcon,
+        alt: "Relume logo 3",
+      },
+      paragraph: "Advanced Recipe Filter",
+    },
+    {
+      icon: {
+        src: WeighingMachineIcon,
+        alt: "Relume logo 2",
+      },
+      paragraph: "Collaborative Meal Planning",
+    },
+    {
+      icon: {
+        src: MobileWireless,
+        alt: "Relume logo 3",
+      },
+      paragraph: "Grocery List Management",
+    },
+    {
+      icon: {
+        src: SecureIcon,
+        alt: "Relume logo 2",
+      },
+      paragraph: "Recipe Management",
+    },
+  ],
+  buttons: [{ title: "Explore Now", variant: "secondary" }],
   image: {
     src: "https://relume-assets.s3.amazonaws.com/placeholder-image.svg",
     alt: "Placeholder image",
   },
-  reverse: true,
+  reverse: false,
 };
+
+// const fourthSection: Layout16Props = {
+//   heading: "Medium length section heading goes here",
+//   description:
+//     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.",
+
+//   image: {
+//     src: "https://relume-assets.s3.amazonaws.com/placeholder-image.svg",
+//     alt: "Placeholder image",
+//   },
+//   reverse: true,
+// };
 
 const blogPosts: BlogPost[] = [
   {
@@ -456,7 +515,7 @@ function Home() {
       <CravingChef {...Layout422Defaults} />
       <ImageWithDescription {...firstSection} />
       <ImageWithDescription {...secondSection} />
-      <ImageWithDescription {...firstSection} color={true} />
+      <ImageWithDescription {...thirdSection} color={true} />
       {/* <ImageWithDescription {...fourthSection} /> */}
       <CreateAndShare {...Layout396Defaults} />
       <UpgradeExpSection

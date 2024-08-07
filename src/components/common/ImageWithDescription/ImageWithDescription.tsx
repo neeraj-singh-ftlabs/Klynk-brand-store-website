@@ -37,18 +37,17 @@ export type Layout16Props = React.ComponentPropsWithoutRef<"section"> & Partial<
 
 export const Layout17 = (props: any) => {
   const { tagline, heading,color=false, description, features, buttons, image , reverse=false, gridView=false,buttonsView=true, gridIconView=true } = {
-    // ...Layout16Defaults,
     ...props,
   } as Props;
-  // ${
-  //       color && "bg-gradient-to-r from-[#000000] to-[#292929] text-white"
-  //     }
+ 
   return (
     <section
-      className={`px-[5%] py-16 md:py-24 lg:py-28 `}
+      className={`px-[5%] py-16 md:py-24 lg:py-28   ${
+        color && "bg-gradient-to-r from-[#000000] to-[#292929] text-white"
+      }`}
     >
       <div className="container">
-        <div className="grid grid-cols-1 gap-y-12 md:grid-cols-2 md:items-center md:gap-x-12 lg:gap-x-20">
+        <div className="grid grid-cols-1 gap-y-12 lg:grid-cols-2 md:items-center md:gap-x-12 lg:gap-x-20">
           <div className={`${reverse ? "hidden" : "block"}`}>
             <img
               src={image.src}
@@ -57,25 +56,33 @@ export const Layout17 = (props: any) => {
             />
           </div>
           <div>
-            {tagline && (
+            {tagline && !color && (
               <h1 className="mb-3 text-5xl font-bold md:mb-3 md:text-7xl lg:text-8xl text-orange-500">
                 {tagline}
               </h1>
             )}
             {heading && (
-              <h1 className="mb-5 text-3xl font-bold md:mb-6 md:text-5xl lg:text-6xl">
+              <h1
+                className={`mb-5 text-3xl font-bold md:mb-6 md:text-5xl lg:text-6xl ${
+                  color && "lg:w-[350px] text-wrap "
+                }`}
+              >
                 {heading}
               </h1>
             )}
-            <p className="mb-5 text-base md:mb-6 md:text-md">{description}</p>
+            {!color && (
+              <p className="mb-5 text-base md:mb-6 md:text-md">{description}</p>
+            )}
             {features && features.length && (
-              <ul className="grid grid-cols-2 gap-4 py-2">
+              <ul className="grid  grid-cols-1 md:grid-cols-2 gap-4 py-2">
                 {features?.map((feature, index) => (
                   <li key={index} className="flex self-start">
                     <div className="mr-4 flex-none self-start">
                       <Image
-                        src={feature.icon.src} width={100} height={100}
-                        alt={feature.icon.alt || 'image'}
+                        src={feature.icon.src}
+                        width={100}
+                        height={100}
+                        alt={feature.icon.alt || "image"}
                         className="size-10"
                       />
                     </div>

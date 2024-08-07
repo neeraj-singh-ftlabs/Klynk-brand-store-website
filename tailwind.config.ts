@@ -28,6 +28,10 @@ const config: Config = {
         heading: ["Roboto Slab"],
         paragraph: ["Mukta Mahee"],
       },
+      screens: {
+        xs: "250px", 
+        sm:"380px"
+      },
     },
   },
   presets: [require("@relume_io/relume-tailwind")],

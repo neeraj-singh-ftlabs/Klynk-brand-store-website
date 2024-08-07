@@ -41,24 +41,24 @@ export const Testimonial17 = (props: Testimonial17Props) => {
           </h1>
           <p className="md:text-md lg:text-nowrap ">{description}</p>
         </div>
-        <div className="grid grid-cols-1 h-full  items-stretch gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid  h-full  items-stretch gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((testimonial: any, index: number) => (
             <div
               key={index}
-              className="relative  flex w-full shadow-xxlarge shadow-gray-300 rounded-lg flex-col items-start justify-between border-none pb-6 pr-4 pl-4 pt-0"
+              className="relative flex w-full  shadow-xxlarge shadow-gray-300 rounded-lg flex-col items-center justify-between border-none pb-6  pt-0"
             >
-              <div className="relative mb-5 md:mb-6 ">
+              <div className="relative mb-5 md:mb-6 h-[400px]">
                 {playIndex.index == index && playIndex.status ? (
                   <iframe
                     src="https://www.youtube.com/embed/8DKLYsikxTs?autoplay=1&controls=1"
-                    className="z-50 w-full lg:w-[380px] h-[400px] object-cover rounded-lg"
+                    className="z-50 w-full h-full object-cover rounded-lg"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                   ></iframe>
                 ) : (
                   <iframe
                     src="https://www.youtube.com/embed/8DKLYsikxTs"
-                    className="z-50 w-full lg:w-[380px] h-[400px] object-cover rounded-lg"
+                    className="z-50 w-full h-full  object-cover rounded-lg"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   ></iframe>
                 )}
@@ -77,7 +77,7 @@ export const Testimonial17 = (props: Testimonial17Props) => {
                   </div>
                 )}
               </div>
-              <div className="flex z-50  ml-[38%] mt-[-55px]  items-center justify-center rounded-full bg-orange-500 w-18 h-18">
+              <div className="flex z-50   mt-[-55px]  items-center justify-center rounded-full bg-orange-500 w-18 h-18">
                 {playIndex.index == index && playIndex.status ? (
                   <ImPause
                     className="text-white text-4xl cursor-pointer"
@@ -104,7 +104,7 @@ export const Testimonial17 = (props: Testimonial17Props) => {
               </div>
               <div className="flex w-full mt-6 mb-5 flex-col  text-left md:w-fit md:flex-row md:items-center">
                 <div className="items-center  justify-center text-center">
-                  <p className="font-semibold text-center md:ml-24 lg:ml-32">
+                  <p className="font-semibold text-center">
                     {testimonial.name}
                   </p>
                 </div>
