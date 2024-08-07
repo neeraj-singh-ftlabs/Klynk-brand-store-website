@@ -1,3 +1,4 @@
+import PrimaryButton from "@/components/common/Button/PrimaryButton";
 import React from "react";
 
 interface ProductCardProps {
@@ -37,9 +38,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   </div>
 );
 
-
-
-
 export const DiscountCode: React.FC = () => (
   <div className="flex gap-3.5 mt-5 text-sm">
     <div className="flex flex-col grow shrink-0 self-start px-5 basis-0 w-fit">
@@ -50,14 +48,15 @@ export const DiscountCode: React.FC = () => (
       <div className="mt-4 text-black">Subtotal</div>
     </div>
     <div className="flex flex-col  whitespace-nowrap mr-5">
-      <button className="flex flex-col justify-center font-semibold text-center bg-orange-200 rounded-md text-black text-opacity-60">
-        <div className="px-2 py-4 rounded-md bg-white bg-opacity-0">Apply</div>
-      </button>
+      <PrimaryButton
+        customClass="py-4"
+        text="Apply"
+      />
+
       <div className="mt-4 text-right text-black">₹5,100.00</div>
     </div>
   </div>
 );
-
 
 export const OrderSummary: React.FC = () => (
   <div className="flex gap-5 justify-between items-start mt-2 w-full">
@@ -80,13 +79,10 @@ export const OrderSummary: React.FC = () => (
       <div className="flex gap-2 self-start mt-3 whitespace-nowrap ml-10">
         <div className="my-auto text-xs text-black text-opacity-60">INR</div>
         <div className="text-xl font-semibold text-black">₹5,100.00</div>
-            </div>
-            
-        </div>
-        
+      </div>
+    </div>
   </div>
 );
-
 
 const OrderDetails: React.FC = () => (
   <main className="flex flex-col max-w-[444px] mt-80 md:mt-0  md:ml-16 lg:ml-0">

@@ -16,6 +16,11 @@
   }
 }
 
+.swiper-pagination-bullet-active {
+  background-color: #EF4F23 !important;
+  width: 10px !important;
+  height: 10px !important;
+}
 body {
  /* overflow-x: hidden; */
 } 
@@ -31,6 +36,12 @@ body {
   }
 }
 
+.font-primary{
+  font-family:"Roboto Slab" !important ;
+}
+.font-secondary{
+    font-family:"Mukta Mahee" !important ;
+}
 
 .smooth {
   transition: box-shadow 0.3s ease-in-out;

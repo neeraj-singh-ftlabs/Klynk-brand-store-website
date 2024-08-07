@@ -19,12 +19,12 @@ function Checkout() {
    ];
   return (
     <>
-      <HeaderCheckout
+      {/* <HeaderCheckout
         logoSrc="https://relume-assets.s3.amazonaws.com/logo-image.svg"
         iconSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/d3280e94f4720213b7574b69da66d32434bc6addf0009582b95b560859979b69?apiKey=cad9cc51066f446382ba26fef0169eb1&&apiKey=cad9cc51066f446382ba26fef0169eb1"
-      />
+      /> */}
       <div className="bg-white flex flex-col lg:flex-row overflow-x-hidden">
-        <div className="w-full lg:w-[65%] h-screen md:overflow-y-auto no-scrollbar lg:border-r  border-stone-400 ">
+        <div className="w-full lg:w-[60%] h-screen md:overflow-y-auto no-scrollbar lg:border-r  border-stone-400 mb-10">
           <Contact addressFields={addressFields} cityFields={cityFields} />
         </div>
         <div className="w-full lg:w-[40%] md:ml-20 md:mt-20 mr-20 mb-20 sticky top-0">

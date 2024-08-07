@@ -4,7 +4,7 @@ import DeliveryForm from "./DeliveryForm";
 const Contact: React.FC<any> = ({ cityFields, addressFields }) => {
   return (
     <main className="flex px-5 h-full ">
-      <form className="flex md:ml-[5%] lg:ml-[25%] md:mt-20  md:px-16 flex-col mt-2 ">
+      <form className="flex md:ml-[5%] lg:ml-[25%] md:mt-20 flex-col mt-2">
         <header>
           <h1 className="mt-4 text-3xl font-bold text-start text-black leading-[5px] max-md:max-w-full max-md:text-4xl">
             Contact

@@ -1,3 +1,4 @@
+import PrimaryButton from "@/components/common/Button/PrimaryButton";
 import React from "react";
 
 const DeliveryForm: React.FC<any> = ({ addressFields, cityFields }) => {
@@ -53,10 +54,11 @@ const DeliveryForm: React.FC<any> = ({ addressFields, cityFields }) => {
         message="Enter your shipping address to view available shipping methods."
         className="mt-4"
       />
-      <div className=" mt-5 lg:mt-0 text-center items-center hidden lg:flex justify-center w-full h-full">
-        <button className="bg-[#9B1C1C]   text-white p-3 text-center w-full md:w-[550px] lg:mb-20  rounded-md">
-          Pay Now
-        </button>
+      <div className="mt-5 lg:mt-0 text-center items-center hidden lg:flex justify-center w-full h-full mb-5">
+        <PrimaryButton
+          customClass="w-full"
+          text="Pay Now"
+        />
       </div>
     </form>
   );

@@ -5,12 +5,13 @@ import { RxChevronRight } from "react-icons/rx";
 import { Button, ButtonProps } from "@relume_io/relume-ui";
 
 
+
 export interface BlogPost {
   imageUrl: string;
   category?: string;
   readTime?: string;
   title: string;
-  description: string;
+  description?: string;
   readMore?:boolean
 
 }
@@ -62,7 +63,7 @@ const buttons:ButtonProps[] = [
 interface BlogsHeaderProps {
   tagline: string;
   title: string;
-  description: string;
+  description?: string;
 }
 
 interface BlogSectionProps {

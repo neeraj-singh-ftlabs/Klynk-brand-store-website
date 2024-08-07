@@ -14,15 +14,23 @@ type Props = {
   description: string;
   buttons: ButtonProps[];
   image: ImageProps;
-  center?:boolean;
-  small?:boolean;
+  center?: boolean;
+  small?: boolean;
 };
 
 export type Header5Props = React.ComponentPropsWithoutRef<"section"> &
   Partial<Props>;
 
 export const Header5 = (props: Header5Props) => {
-  const { tagline, heading, description, buttons, image, center=false, small=false } = {
+  const {
+    tagline,
+    heading,
+    description,
+    buttons,
+    image,
+    center = false,
+    small = false,
+  } = {
     ...props,
   } as Props;
   return (

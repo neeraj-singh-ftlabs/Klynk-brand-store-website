@@ -19,24 +19,28 @@
   import React from 'react';
 
 interface BlogsHeaderProps {
-  tagline: string;
+  tagline?: string;
   title: string;
-  description: string;
+  description?: string;
 }
 
 const BlogsHeader: React.FC<BlogsHeaderProps> = ({ tagline, title, description }) => {
     
   return (
     <>
-      <h2 className="mt-8 text-base font-semibold leading-6 text-center text-black">
-        {tagline}
-      </h2>
-      <h1 className="mt-4 text-5xl font-bold text-center text-black leading-[57.6px] max-md:max-w-full max-md:text-4xl">
+      {tagline && (
+        <h2 className="mt-8 text-base font-semibold  leading-6 text-center text-black">
+          {tagline}
+        </h2>
+      )}
+      <h1 className="mt-4 text-5xl lg:text-6xl lg:ml-[25%] w-full lg:w-[50%] font-black text-wrap text-center text-black leading-[57.6px] max-md:max-w-full max-md:text-4xl">
         {title}
       </h1>
-      <p className="mt-6 text-lg leading-7 text-center text-black max-md:max-w-full">
-        {description}
-      </p>
+      {description && (
+        <p className="mt-6 text-lg leading-7 text-center text-black max-md:max-w-full">
+          {description}
+        </p>
+      )}
     </>
   );
 };
