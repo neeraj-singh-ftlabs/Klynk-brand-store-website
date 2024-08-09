@@ -1,0 +1,15 @@
+.home-page-carousel .swiper-pagination-bullet {
+  height: 16px !important;
+  width: 16px !important;
+  background-color: #333333;
+  opacity: 1;
+  z-index: 1;
+}
+.home-page-carousel .swiper-pagination-bullet-active {
+  background-color: #ef4823;
+}
+.home-page-carousel .swiper-pagination {
+  text-align: start !important;
+  padding: 3em 5em;
+  max-width: 1280px;
+}

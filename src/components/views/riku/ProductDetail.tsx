@@ -5,7 +5,7 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
 const ProductPage: React.FC<any> = ({ productPageDetails }) => {
   return (
-    <main className="flex flex-col px-16 pb-20 bg-white max-md:px-5">
+    <main className="flex w-full flex-col px-16 pb-20 bg-white max-md:px-5">
       {/* <BreadcrumbNav /> */}
       <section className="pb-12 mt-6 max-md:max-w-full">
         <div className="flex gap-5 max-md:flex-col">

@@ -22,7 +22,25 @@ import { BiCheck } from "react-icons/bi";
 import UpgradeExpSection from "@/components/common/rightImageDesc/RightImageDescSection";
 import { Faq3 as Faq, Faq3Props } from "@/components/common/faq1/Faq1";
 import NavigationTabs from "@/components/tabs/Tab";
+import {
+  Testimonial17 as CustomerTestimonials,
+  Testimonial17Props,
+} from "@/components/views/home/CustomerTestimonials";
+import { Header5Props, Header5 as Hero } from "@/components/common/hero/Hero";
 
+const heroProps: Header5Props = {
+  heading: "Revolutionize your cooking with Riku technology",
+  description:
+    "Experience the future of home cooking with Riku, the world's first automatic rice and curry maker. Its innovative technology and user-friendly design make cooking effortless and enjoyable.",
+  buttons: [
+    { title: "Discover" },
+    { title: "Learn More", variant: "secondary-alt" },
+  ],
+  image: {
+    src: "https://relume-assets.s3.amazonaws.com/placeholder-image.svg",
+    alt: "Placeholder image",
+  },
+};
 
 const thirdSection: Layout16Props = {
   tagline: "Revolutionize",
@@ -442,7 +460,49 @@ const Pricing27Defaults: Pricing27Props = {
     },
   ],
 };
-
+const Testimonial17Defaults: Testimonial17Props = {
+  heading: "What Our Users Are Saying",
+  description:
+    "Hear from satisfied Klynk customers who have transformed their cooking experience with our innovative solutions.",
+  testimonials: [
+    {
+      testimonial:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.",
+      avatar: {
+        src: "https://relume-assets.s3.amazonaws.com/placeholder-image.svg",
+        alt: "Testimonial avatar 1",
+      },
+      name: "Name Surname",
+      position: "Position",
+      companyName: "Company name",
+      numberOfStars: 5,
+    },
+    {
+      testimonial:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.",
+      avatar: {
+        src: "https://relume-assets.s3.amazonaws.com/placeholder-image.svg",
+        alt: "Testimonial avatar 2",
+      },
+      name: "Name Surname",
+      position: "Position",
+      companyName: "Company name",
+      numberOfStars: 5,
+    },
+    {
+      testimonial:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.",
+      avatar: {
+        src: "https://relume-assets.s3.amazonaws.com/placeholder-image.svg",
+        alt: "Testimonial avatar 3",
+      },
+      name: "Name Surname",
+      position: "Position",
+      companyName: "Company name",
+      numberOfStars: 5,
+    },
+  ],
+};
 const tabs = [
   { title: 'Overview', url: '/semi/overview' },
   { title: 'Technology', url: '/semi/technology' },
@@ -453,8 +513,9 @@ const tabs = [
 function Dashboard() {
   return (
     <>
-    <NavigationTabs  tabs={tabs} />
-      <ExploreAndLearnMore
+      <NavigationTabs tabs={tabs} />
+      <Hero {...heroProps} center={true} />
+      {/* <ExploreAndLearnMore
         Tagline="Simplify"
         title="Revolutionize Your Cooking"
         paragraph="Discover innovative solutions that make cooking easier and more enjoyable."
@@ -462,7 +523,7 @@ function Dashboard() {
           { text: "Explore", variant: "primary" },
           { text: "Learn More", variant: "secondary" },
         ]}
-      />
+      /> */}
       <ImageWithDescription {...secondSection} />
       <SaveTimeAndEffort
         heading={featureData.heading}
@@ -491,12 +552,14 @@ function Dashboard() {
         secondaryButtonText="Buy Now"
       />
       <Faq {...Faq3Defaults} />
+      <CustomerTestimonials {...Testimonial17Defaults} />
       <UpgradeExpSection
         title="Stay Updated with Klynk"
         description="Subscribe to our newsletter for the latest updates and special offers."
         imageSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/1f23a3427c8904e04004d18a7bac5335c7d9718101b21c60eccca03b5419b2fb?apiKey=971b6410d97242e7b97afd5891e4e40f&&apiKey=971b6410d97242e7b97afd5891e4e40f"
         primaryButtonText="Subscribe"
         secondaryButtonText="Learn More"
+        bgColor={true}
       />
     </>
   );

@@ -17,7 +17,7 @@ export interface JobListingProps {
 const OpenPositions: React.FC<OpenPositionsProps> = ({ jobListings }) => {
   return (
     <main className="flex justify-center items-center px-16 py-20 text-black bg-white max-md:px-5">
-      <div className="flex flex-col mt-8 max-w-full w-[768px]">
+      <div className="flex flex-col mt-8 max-w-full w-full">
         <h2 className="text-base font-semibold leading-6 text-center max-md:max-w-full">
         Connecting
         </h2>

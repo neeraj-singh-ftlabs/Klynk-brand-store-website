@@ -1,11 +1,20 @@
-'use client'
+"use client";
 import {
   Layout17 as ImageWithDescription,
   Layout16Props,
 } from "@/components/common/ImageWithDescription/ImageWithDescription";
-import { Logo4 as AwardsAndNews, Logo4Props } from "@/components/views/home/AwardsAndNews";
-import { Layout42 as ConnectingDots, Layout42Props } from "@/components/views/home/ConnectingDots";
-import { Testimonial17 as CustomerTestimonials, Testimonial17Props } from "@/components/views/home/CustomerTestimonials";
+import {
+  Logo4 as AwardsAndNews,
+  Logo4Props,
+} from "@/components/views/home/AwardsAndNews";
+import {
+  Layout42 as ConnectingDots,
+  Layout42Props,
+} from "@/components/views/home/ConnectingDots";
+import {
+  Testimonial17 as CustomerTestimonials,
+  Testimonial17Props,
+} from "@/components/views/home/CustomerTestimonials";
 import BlogsSection, { BlogPost } from "@/components/views/blog/BlogsSection";
 import JoinCommunity from "@/components/views/home/JoinCommunity";
 import { RxChevronRight } from "react-icons/rx";
@@ -14,15 +23,36 @@ import React from "react";
 import SubscribeModal from "@/components/common/SubscribeModal";
 import UpgradeExpSection from "@/components/common/rightImageDesc/RightImageDescSection";
 import Carousel from "@/components/common/Carousel";
-import { CreateAndShare, Layout396Props } from "@/components/views/home/CreateAndShare";
-import { Header102Props, HeroCourosel } from "@/components/heroCourosel";
-import { CravingChef, Layout422Props } from "@/components/views/home/CravingChef";
-import ChefHatIcon from '../../public/assets/Images/Icons/ChefHat.svg'
+import {
+  CreateAndShare,
+  Layout396Props,
+} from "@/components/views/home/CreateAndShare";
+import HeroCourosel from "@/components/views/home/HeroCourosel";
+import {AppSection} from "@/components/views/home/AppSection";
+import {
+  CravingChef,
+  Layout422Props,
+} from "@/components/views/home/CravingChef";
+import ChefHatIcon from "../../public/assets/Images/Icons/ChefHat.svg";
 import SmokeBorderedIcon from "../../public/assets/Images/Icons/SmokeBordered.svg";
 import MobileWireless from "../../public/assets/Images/Icons/MobileWireless.svg";
 import SecureIcon from "../../public/assets/Images/Icons/Secure.svg";
 import WeighingMachineIcon from "../../public/assets/Images/Icons/WeighingMachine.svg";
 import ThermometerIcon from "../../public/assets/Images/Icons/Thermometer.svg";
+import RikuExtended from "../../public/assets/Images/Home-Page/Riku-extended.webp";
+import RikuExtendedPng from "../../public/assets/Images/Home-Page/Riku-extended.png";
+import SemiExtend from "../../public/assets/Images/Home-Page/Semi-extend.webp";
+import SemiBlack from "../../public/assets/Images/Home-Page/Semi-black-bg.webp";
+import AboutSectionImage from "../../public/assets/Images/Home-Page/About-section-image.webp";
+import AppSectionImage from "../../public/assets/Images/Home-Page/App Section.svg";
+import SemiExtendWhite from "../../public/assets/Images/Home-Page/Semi.webp";
+import RikuExtendedWhite from "../../public/assets/Images/Home-Page/Riku-extended-white.webp";
+import ChefImage from "../../public/assets/Images/Home-Page/Create Smart Recipes/chef.webp";
+import AlooPalak from "../../public/assets/Images/Home-Page/Create Smart Recipes/Aloo-Palak-min.webp";
+import KadhaiPaneer from "../../public/assets/Images/Home-Page/Create Smart Recipes/Kadhai-Paneer-min.webp";
+import Rabdi from "../../public/assets/Images/Home-Page/Create Smart Recipes/Rabdi-min.webp";
+import TawaPulao from "../../public/assets/Images/Home-Page/Create Smart Recipes/Tawa-Pulao-min.webp";
+import FoodCommunity from "../../public/assets/Images/Home-Page/food community.webp";
 
 const firstSection: Layout16Props = {
   tagline: "Meet Semi",
@@ -78,7 +108,7 @@ const firstSection: Layout16Props = {
   ],
   buttons: [{ title: "Learn More", variant: "secondary" }],
   image: {
-    src: "https://relume-assets.s3.amazonaws.com/placeholder-image.svg",
+    src: SemiExtendWhite,
     alt: "Placeholder image",
   },
 };
@@ -137,12 +167,13 @@ const secondSection: Layout16Props = {
   ],
   buttons: [{ title: "Learn More", variant: "secondary" }],
   image: {
-    src: "https://relume-assets.s3.amazonaws.com/placeholder-image.svg",
+    src: RikuExtendedWhite,
     alt: "Placeholder image",
   },
   reverse: true,
 };
 const thirdSection: Layout16Props = {
+  dark: true,
   tagline: "Meet Riku",
   heading: "Your Ultimate Kitchen Companion",
   description:
@@ -196,7 +227,7 @@ const thirdSection: Layout16Props = {
   ],
   buttons: [{ title: "Explore Now", variant: "secondary" }],
   image: {
-    src: "https://relume-assets.s3.amazonaws.com/placeholder-image.svg",
+    src: AppSectionImage,
     alt: "Placeholder image",
   },
   reverse: false,
@@ -246,7 +277,7 @@ const blogPosts: BlogPost[] = [
     imageUrl:
       "https://cdn.builder.io/api/v1/image/assets/TEMP/57271da0931e0cee3bfaa67da24152bca3aeb78c89df4b2caa85a533f74d5843?apiKey=971b6410d97242e7b97afd5891e4e40f&",
     category: "Blog Category",
-   readTime: "Aug 22, 2024",
+    readTime: "Aug 22, 2024",
     title: "Step 4: Relax",
     description: "Sit back and relax as Riku cooks your meal.",
     readMore: true,
@@ -255,7 +286,7 @@ const blogPosts: BlogPost[] = [
     imageUrl:
       "https://cdn.builder.io/api/v1/image/assets/TEMP/57271da0931e0cee3bfaa67da24152bca3aeb78c89df4b2caa85a533f74d5843?apiKey=971b6410d97242e7b97afd5891e4e40f&",
     category: "Blog Category",
-   readTime: "Aug 22, 2024",
+    readTime: "Aug 22, 2024",
     title: "Step 5: Relax",
     description: "Sit back and relax as Riku cooks your meal.",
     readMore: true,
@@ -268,14 +299,14 @@ const headerProps = {
   // description: "Explore our collection of mouthwatering recipes and cooking tips"
 };
 
-const Header102Defaults: Header102Props = {
+const Header102Defaults = {
   buttons: [
     { title: "Learn More " },
     { title: "Get Demo", variant: "primary" },
   ],
   images: [
     {
-      src: "https://img.freepik.com/premium-photo/microwave-oven-black-background_472640-1469.jpg",
+      src: RikuExtended,
       alt: "Placeholder image 1",
       heading: "The Feature of Home Cooking is  here",
       description:
@@ -283,7 +314,7 @@ const Header102Defaults: Header102Props = {
     },
 
     {
-      src: "https://img.freepik.com/premium-photo/microwave-oven-black-background_472640-1469.jpg",
+      src: SemiExtend,
       alt: "Placeholder image 2",
       heading: "Smart Cooking, Simplified",
       description:
@@ -292,11 +323,11 @@ const Header102Defaults: Header102Props = {
   ],
 };
 
-
 const Layout42Defaults: Layout42Props = {
   heading: "Innovating the Future of Home Cooking",
   description:
     "At Klynk, we merge the art and science of cooking with smart technology to revolutionize your kitchen experience. Our intuitive appliances streamline meal preparation, delivering perfect, chef-quality results every time. Even with AI at its core, our technology ensures every dish retains the perfect human touch and taste. We are dedicated to making cooking a joyful and effortless endeavor for everyone, every time.",
+  image: AboutSectionImage,
 };
 
 const Logo4Defaults: Logo4Props = {
@@ -394,7 +425,7 @@ const Testimonial17Defaults: Testimonial17Props = {
 const Layout396Defaults: Layout396Props = {
   //   tagline: "Tagline",
   image: {
-    src: "https://relume-assets.s3.amazonaws.com/placeholder-image.svg",
+    src: ChefImage,
     alt: "Placeholder image",
   },
   heading: "Smart Recipes",
@@ -403,10 +434,10 @@ const Layout396Defaults: Layout396Props = {
   featureSections: [
     {
       icon: {
-        src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+        src: AlooPalak,
         alt: "Relume logo 1",
       },
-      heading: "Effortless Cooking with Riku's Induction Features",
+      heading: "Butter Paneer",
       description:
         "Experience the convenience of Riku's advanced induction technology.",
       button: {
@@ -418,10 +449,10 @@ const Layout396Defaults: Layout396Props = {
     },
     {
       icon: {
-        src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+        src: KadhaiPaneer,
         alt: "Relume logo 1",
       },
-      heading: "Effortless Cooking with Riku's Induction Features",
+      heading: "Dal Makhani",
       description:
         "Experience the convenience of Riku's advanced induction technology.",
       button: {
@@ -433,11 +464,10 @@ const Layout396Defaults: Layout396Props = {
     },
     {
       icon: {
-        src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+        src: Rabdi,
         alt: "Relume logo 2",
       },
-      heading:
-        "Enhance Your Cooking Experience with Riku's Induction Technology",
+      heading: "Raajma",
       description:
         "Unlock a new level of precision and control in your cooking.",
       button: {
@@ -449,10 +479,10 @@ const Layout396Defaults: Layout396Props = {
     },
     {
       icon: {
-        src: "https://relume-assets.s3.amazonaws.com/relume-icon.svg",
+        src: TawaPulao,
         alt: "Relume logo 3",
       },
-      heading: "Revolutionize Your Cooking with Riku's Induction Technology",
+      heading: "Pulao",
       description:
         "Experience the future of cooking with cutting-edge induction features.",
       button: {
@@ -473,11 +503,10 @@ const Layout422Defaults: Layout422Props = {
       tagline: "Riku",
       url: "#",
       heading: "Explore",
-      description:
-        "Not a pro at cooking?", 
-        subDes:"Let Riku handle it while you enjoy what you love.",
+      description: "Not a pro at cooking?",
+      subDes: "Let Riku handle it while you enjoy what you love.",
       image: {
-        src: "https://img.freepik.com/premium-photo/microwave-oven-black-background_472640-1469.jpg",
+        src: RikuExtendedPng,
         alt: "Placeholder image 1",
       },
       button: {
@@ -490,11 +519,10 @@ const Layout422Defaults: Layout422Props = {
       tagline: "Semi",
       url: "#",
       heading: "Explore",
-      description:
-        "Craving chef-quality meals?",
-        subDes:"Achieve perfect taste every time with Semi.",
+      description: "Craving chef-quality meals?",
+      subDes: "Achieve perfect taste every time with Semi.",
       image: {
-        src: "https://img.freepik.com/premium-photo/microwave-oven-black-background_472640-1469.jpg",
+        src: SemiBlack,
         alt: "Placeholder image 2",
       },
       button: {
@@ -507,7 +535,6 @@ const Layout422Defaults: Layout422Props = {
 };
 
 function Home() {
-
   return (
     <div>
       <HeroCourosel {...Header102Defaults} />
@@ -515,18 +542,16 @@ function Home() {
       <CravingChef {...Layout422Defaults} />
       <ImageWithDescription {...firstSection} />
       <ImageWithDescription {...secondSection} />
-      <ImageWithDescription {...thirdSection} color={true} />
-      {/* <ImageWithDescription {...fourthSection} /> */}
+      <AppSection {...thirdSection} />
       <CreateAndShare {...Layout396Defaults} />
       <UpgradeExpSection
         status={true}
         title="Join Our Foodie"
         description="Subscribe for Exclusive Recipes and Blog Updates"
-        imageSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/1f23a3427c8904e04004d18a7bac5335c7d9718101b21c60eccca03b5419b2fb?apiKey=971b6410d97242e7b97afd5891e4e40f&&apiKey=971b6410d97242e7b97afd5891e4e40f"
+        imageSrc={FoodCommunity}
         primaryButtonText="Submit"
         secondaryButtonText="Learn More"
       />
-      {/* <BlogsSection blogPosts={blogPosts} headerProps={headerProps} /> */}
       <CustomerTestimonials {...Testimonial17Defaults} />
       <Carousel blogPosts={blogPosts} headerProps={headerProps} />
       <AwardsAndNews {...Logo4Defaults} />

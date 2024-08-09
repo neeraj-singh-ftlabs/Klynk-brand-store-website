@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 // Import required modules
 import { Pagination } from "swiper/modules";
-import BlogsHeader from "./blogSection/BlogsHeader";
+import BlogsHeader from "./Blog/BlogsHeader";
 import PrimaryButton from "./Button/PrimaryButton";
 import { Button } from "@relume_io/relume-ui";
 

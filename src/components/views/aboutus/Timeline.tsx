@@ -9,7 +9,7 @@ const Timeline: React.FC<TimelineProps> = ({heroProps,timelineItems}) => {
  
 
   return (
-    <main className="flex flex-col items-center px-16 py-20 bg-white max-md:px-5">
+    <main className="w-full flex flex-col  items-center px-16 py-20 bg-white max-md:px-5">
       <HeroSection {...heroProps} />
       <TimelineSection items={timelineItems} />
       <HeroSection {...heroProps} />
@@ -36,14 +36,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   secondaryButtonText
 }) => {
   return (
-    <header className="flex flex-col items-center px-16 py-20 bg-white max-md:px-5">
+    <header className="flex w-full flex-col items-center px-16 py-20 bg-white max-md:px-5">
       <p className="mt-8 text-base font-semibold leading-6 text-center text-black">
         {tagline}
       </p>
-      <h1 className="mt-4 text-5xl font-bold text-center text-black leading-[58px] w-[768px] max-md:max-w-full max-md:text-4xl max-md:leading-[54px]">
+      <h1 className="mt-4 text-5xl font-bold text-center text-black leading-[58px] max-md:max-w-full max-md:text-4xl max-md:leading-[54px]">
         {heading}
       </h1>
-      <p className="mt-6 text-lg leading-7 text-center text-black w-[768px] max-md:max-w-full">
+      <p className="mt-6 text-lg leading-7 text-center text-black  max-md:max-w-full">
         {description}
       </p>
       <div className="flex gap-5 justify-between items-start pt-4 mt-6 text-base leading-6 text-black whitespace-nowrap">
@@ -90,7 +90,7 @@ export interface TimelineItemProps {
 
 const TimelineItem: React.FC<TimelineItemProps> = ({ date, content, buttonText, imageSrc }) => {
   return (
-    <article className="flex gap-5 self-stretch mt-28 max-md:flex-wrap max-md:mt-10 max-md:max-w-full">
+    <article className="flex w-full gap-5 self-stretch mt-28 max-md:flex-wrap max-md:mt-10 max-md:max-w-full">
       <h2 className="flex-1 py-16 text-4xl font-bold leading-10 text-right text-black whitespace-nowrap max-md:max-w-full mt-4">
         {date}
       </h2>
@@ -101,7 +101,7 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ date, content, buttonText, 
 </div>
       <div className="flex flex-col w-1/3 py-16 text-black max-md:max-w-[full]">
         <p className="text-lg leading-7 max-md:max-w-full">{content}</p>
-        <div className="flex gap-5 justify-between items-start self-start pt-4 mt-4 text-base leading-6 whitespace-nowrap">
+        <div className="flex flex-col md:flex-row gap-5 justify-between items-start self-start pt-4 mt-4 text-base leading-6 whitespace-nowrap">
           <Button>{buttonText}</Button>
           <Button variant="text" icon="https://cdn.builder.io/api/v1/image/assets/TEMP/ee5bdbc32bbc53684deecb2f9d63712884517174ee790d5d45a4eae8116d726d?apiKey=971b6410d97242e7b97afd5891e4e40f&&apiKey=971b6410d97242e7b97afd5891e4e40f">
             {buttonText}
@@ -129,7 +129,7 @@ interface TimelineSectionProps {
 
 const TimelineSection: React.FC<TimelineSectionProps> = ({ items }) => {
   return (
-    <section className="flex flex-col items-center px-16 py-20 bg-white max-md:px-5">
+    <section className="w-full flex flex-col items-center px-16 py-20 bg-white max-md:px-5">
       {items.map((item, index) => (
         <TimelineItem key={index} {...item} />
       ))}
