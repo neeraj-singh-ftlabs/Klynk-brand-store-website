@@ -33,7 +33,7 @@ export const Testimonial17 = (props: Testimonial17Props) => {
   } as Props;
    const [playIndex,setPlayIndex] = useState<any>({index:null,status:false})
   return (
-    <section className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section className="px-[5%] py-16 md:py-24 lg:py-28 bg-[#f9f9f9]">
       <div className="container">
         <div className="mx-auto mb-12 w-full max-w-lg text-center md:mb-18 lg:mb-10">
           <h1 className="mb-5 text-5xl font-black md:mb-6 md:text-7xl lg:text-8xl">

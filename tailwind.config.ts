@@ -15,22 +15,24 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
-        primary: {
-          light: "#4B5563",
-          dark: "#E5E7EB",
-        },
-        secondary: {
-          light: "#1F2937",
-          dark: "#F3F4F6",
-        },
+        primary: "#EF4823",
+        // primary: {
+        //   light: "#4B5563",
+        //   test: "#EF4823",
+        //   dark: "#E5E7EB",
+        // },
+        // secondary: {
+        //   light: "#1F2937",
+        //   dark: "#F3F4F6",
+        // },
       },
       fontFamily: {
         heading: ["Roboto Slab"],
         paragraph: ["Mukta Mahee"],
       },
       screens: {
-        xs: "250px", 
-        sm:"380px"
+        xs: "250px",
+        sm: "380px",
       },
     },
   },

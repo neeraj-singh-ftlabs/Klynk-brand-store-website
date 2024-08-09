@@ -21,14 +21,14 @@ const NavigationTabs: React.FC<NavigationTabsProps> = ({ tabs }) => {
     setUrl(pathname);
   }, [pathname]);
   return (
-    <section className="px-[5%] ">
-      <ul className="hidden md:flex flex-row justify-end text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">
+    <section className="w-full">
+      <ul className="no-scrollbar flex flex-nowrap justify-start lg:justify-end text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400 overflow-x-auto whitespace-nowrap">
         {tabs.map((tab, index) => (
-          <li key={index} className="me-2">
+          <li key={index} className="me-2 inline-block">
             <Link
               href={tab.url}
               className={`inline-block px-4 py-2 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300 ${
-                tab.url == url ? "text-blue-300" : "text-black"
+                tab.url == url ? "text-orange-500" : "text-black"
               }`}
             >
               {tab.title}

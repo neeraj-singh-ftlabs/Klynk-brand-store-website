@@ -14,10 +14,10 @@ const CookingRiku: React.FC<HeroSectionProps> = ({
   return (
     <section className="flex flex-col items-start px-16 py-20 text-base leading-6 text-black bg-white max-md:px-5">
       <h2 className="mt-8 ml-16 font-semibold max-md:max-w-full">{tagline}</h2>
-      <h1 className="mt-4 ml-16 text-5xl font-bold leading-[58px] w-[768px] max-md:max-w-full max-md:text-4xl max-md:leading-[54px]">
+      <h1 className="mt-4 ml-16 text-5xl font-bold leading-[58px] max-md:max-w-full max-md:text-4xl max-md:leading-[54px]">
         {heading}
       </h1>
-      <p className="mt-6 ml-16 text-lg leading-7 w-[768px] max-md:max-w-full">
+      <p className="mt-6 ml-16 text-lg leading-7 max-md:max-w-full">
         {description}
       </p>
       <div className="flex gap-5 justify-between items-start pt-4 mt-4 ml-16 whitespace-nowrap max-md:ml-2.5">

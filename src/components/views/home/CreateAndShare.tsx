@@ -2,7 +2,7 @@ import SecondaryButton from "@/components/common/Button/SecondaryButton";
 import { Button } from "@relume_io/relume-ui";
 import type { ButtonProps } from "@relume_io/relume-ui";
 type ImageProps = {
-  src: string;
+  src: any;
   alt?: string;
 };
 type FeatureSection = {
@@ -29,34 +29,35 @@ export const CreateAndShare = (props: Layout396Props) => {
     ...props,
   } as Props;
   return (
-    <section className="relative px-[5%] text-white py-16 md:py-24 lg:py-28 h-full">
+    <section className="relative px-[5%] text-white py-16 md:py-24 lg:py-28 h-full overflow-hidden">
       <div className="container">
         <div className=" mb-12 w-full max-w-lg text-start md:mb-18 lg:mb-20 ">
           {/* <p className="mb-3 font-semibold md:mb-4">{tagline}</p> */}
-          <h1 className="mb-5 text-5xl  font-bold md:mb-6 md:text-7xl lg:text-8xl ">
+          <h1 className="mb-5 text-5xl text-black  font-bold md:mb-6 md:text-7xl lg:text-8xl ">
             <span className="text-[#EF4823]">Create and Share </span> {heading}
           </h1>
-          <p className="md:text-md">{description}</p>
+          <p className="md:text-md  text-black">{description}</p>
         </div>
         <div className="grid  auto-cols-fr grid-cols-1 gap-6 md:gap-8 lg:grid-cols-6 mb-10 lg:mb-10">
           {featureSections.map((feature, index) => (
             // <FeatureSection key={index} {...feature} />
             <CardComponent
               key={index}
-              imageUrl="https://t4.ftcdn.net/jpg/05/23/82/37/360_F_523823772_rENIlsWUhzgdojXgODNZZd9WtiQokv72.jpg"
-              title="Card Title"
-            />
+              imageUrl={feature.icon.src.src}
+              title={feature.heading}
+              />
+              
           ))}
         </div>
         <SecondaryButton text="Learn More" />
       </div>
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 -z-10 bg-gray-50">
         <img
-          src={image.src}
-          className="size-full object-cover"
+          src={image.src.src}
+          className="size-full object-scale-down ml-96 hidden md:flex"
           alt={image.alt}
         />
-        <div className="absolute inset-0 bg-black/50" />
+        {/* <div className="absolute inset-0 bg-black/50" /> */}
       </div>
     </section>
   );

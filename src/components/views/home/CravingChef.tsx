@@ -11,7 +11,7 @@ import KlynkLogo from "../../../../public/assets/KlynkLogo&Colours/Klynk Logo Da
 import Image from "next/image";
 
 type ImageProps = {
-  src: string;
+  src: any;
   alt?: string;
 };
 
@@ -50,48 +50,51 @@ export const CravingChef = (props: Layout422Props) => {
           </h2>
           <p className="md:text-md">{description}</p>
         </div>
-        <div className="flex flex-col justify-between gap-6 lg:flex-row md:gap-8">
+        <div className="flex flex-col justify-between gap-30 lg:flex-row md:gap-30">
           {features.map((feature, index) => (
-            <a
+            <div
               key={index}
-              href={feature.url}
-              className=" shadow-xxsmall shadow-gray-500 rounded-xl bg-gradient-to-r from-[#000000] to-[#292929] relative flex w-full flex-col overflow-hidden lg:w-1/2"
+              // href={feature.url}
+              className="rounded-xl relative flex w-full h-full flex-col min-h-[560px] justify-between p-6 md:p-8 lg:p-12"
+              style={
+                {
+                  backgroundImage: `url(${feature.image.src.src})`,
+                  backgroundSize: "contain",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                }
+              }
             >
-              <div className="  w-full text-center  relative flex h-full min-h-[60vh] flex-col justify-end p-6 md:p-8 lg:p-12">
-                <div className="lg:text-center" />
+              {/* <div className="w-full text-center  relative flex h-full  flex-col justify-between p-6 md:p-8 lg:p-12"> */}
+              <div className="flex flex-col gap-8">
                 <div className="flex flex-row  justify-center items-center gap-2">
-                  <h3 className="text-[#F47422] text-2xl text-wrap font-semibold leading-[1.2]  md:text-2xl">
+                  <h3 className="text-[#F47422] text-4xl text-wrap font-semibold leading-[1.2]  md:text-3xl font-secondary">
                     {feature.heading}
                   </h3>
-                  <h3 className="text-white text-2xl text-wrap font-semibold leading-[1.2]  md:text-2xl">
+                  <h3 className="text-white text-5xl text-wrap font-semibold pl-2 md:text-6xl">
                     {feature.tagline}
                   </h3>
-                  <div>
-                    {/* <Image width={150} height={100} src={KlynkLogo} alt="img" /> */}
-                  </div>
                 </div>
-
-                <div className="z-10 w-full">
-                  <div className="lg:w-[241px] lg:ml-[25%]">
-                    <p className="mt-5 text-wrap md:mt-3 text-center">
-                      {feature.description}
-                    </p>
-                    <p className="mt-2 lg:ml-[-35px] text-wrap md:text-nowrap md:mt-1 text-center">
-                      {feature.subDes}
-                    </p>
-                    <img
+                <div className="flex flex-col justify-content-betweenn">
+                  <p className="mt-5 text-wrap md:mt-3 text-center text-xl">
+                    {feature.description}
+                  </p>
+                  <p className="mt-2 lg:ml-[-35px] text-wrap md:text-nowrap md:mt-1 text-center  text-xl">
+                    {feature.subDes}
+                  </p>
+                  {/* <Image
                       src={feature.image.src}
-                      alt={feature.image.alt}
+                      alt="feature.image.alt"
                       className="size-full object-cover mt-18 mb-10"
-                    />
-                  </div>
-                  <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-5 md:ml-[20%]">
-                    <SecondaryButton text="View in 360°" />
-                    <PrimaryButton text="Explore" />
-                  </div>
+                    /> */}
                 </div>
               </div>
-            </a>
+              <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-5 md:ml-[20%]">
+                <SecondaryButton text="View in 360°" />
+                <PrimaryButton text="Explore" />
+              </div>
+              {/* </div> */}
+            </div>
           ))}
         </div>
       </div>
